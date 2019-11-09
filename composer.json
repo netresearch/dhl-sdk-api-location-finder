@@ -1,0 +1,35 @@
+{
+    "name": "dhl/sdk-api-location-finder",
+    "description": "DHL Pick Up/Drop Off Location Search",
+    "keywords": [
+        "php",
+        "sdk"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christoph Aßmann",
+            "email": "christoph.assmann@netresearch.de"
+        }
+    ],
+    "require": {
+        "php": "^7.0.0",
+        "ext-soap": "*",
+        "psr/log": "^1.1.0"
+    },
+    "require-dev": {
+        "ext-simplexml": "*",
+        "phpunit/phpunit": "^6.0.0",
+        "phpstan/phpstan": "^0.11.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dhl\\Sdk\\LocationFinder\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dhl\\Sdk\\LocationFinder\\Test\\": "test/"
+        }
+    }
+}
