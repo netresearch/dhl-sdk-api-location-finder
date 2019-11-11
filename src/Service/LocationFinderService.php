@@ -9,7 +9,7 @@ namespace Dhl\Sdk\LocationFinder\Service;
 
 use Dhl\Sdk\LocationFinder\Api\LocationFinderServiceInterface;
 use Dhl\Sdk\LocationFinder\Model\RequestType\getBranchesByCoordinate;
-use Dhl\Sdk\LocationFinder\Model\RequestType\getPackstationsByAddress;
+use Dhl\Sdk\LocationFinder\Model\RequestType\getPackstationsFilialeDirektByAddress;
 use Dhl\Sdk\LocationFinder\Model\RequestType\getPackstationsPaketboxesByAddress;
 use Dhl\Sdk\LocationFinder\Model\RequestType\getPackstationsPaketboxesByCoordinate;
 use Dhl\Sdk\LocationFinder\Model\RequestType\inputAddress;
@@ -51,13 +51,14 @@ class LocationFinderService implements LocationFinderServiceInterface
         $address->setStreet($streetName);
         $address->setStreetNo($streetNo);
 
-        $request = new getPackstationsByAddress();
+        $request = new getPackstationsFilialeDirektByAddress();
         $request->setAddress($address);
+        $request->setKey('');
 
-        $response = $this->client->getPackstationsByAddress($request);
+        $response = $this->client->getPackstationsFilialeDirektByAddress($request);
         // todo(nr): Map response
 
-        return $response->getPackstation();
+        return $response->getPackstation_filialedirekt();
     }
 
     public function getPickUpLocationsByCoordinate(string $countryCode, float $latitude, float $longitude): array
