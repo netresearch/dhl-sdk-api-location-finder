@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace Dhl\Sdk\LocationFinder\Api;
 
+use Dhl\Sdk\LocationFinder\Api\Data\LocationInterface;
+
 /**
  * Interface LocationFinderServiceInterface
  *
@@ -22,7 +24,7 @@ interface LocationFinderServiceInterface
      * @param string $city
      * @param string|null $streetName
      * @param string|null $streetNo
-     * @return mixed[]
+     * @return LocationInterface[]
      */
     public function getPickUpLocations(
         string $countryCode,
@@ -36,7 +38,7 @@ interface LocationFinderServiceInterface
      * @param string $countryCode
      * @param float $latitude
      * @param float $longitude
-     * @return mixed[]
+     * @return LocationInterface[]
      */
     public function getPickUpLocationsByCoordinate(string $countryCode, float $latitude, float $longitude): array;
 
@@ -46,7 +48,7 @@ interface LocationFinderServiceInterface
      * @param string $city
      * @param string|null $streetName
      * @param string|null $streetNo
-     * @return mixed[]
+     * @return LocationInterface[]
      */
     public function getDropOffLocations(
         string $countryCode,
@@ -60,7 +62,7 @@ interface LocationFinderServiceInterface
      * @param string $countryCode
      * @param float $latitude
      * @param float $longitude
-     * @return mixed[]
+     * @return LocationInterface[]
      */
     public function getDropOffLocationsByCoordinate(string $countryCode, float $latitude, float $longitude): array;
 }
