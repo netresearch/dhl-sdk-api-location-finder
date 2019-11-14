@@ -51,8 +51,8 @@ class getBranchesByAddress
      */
     public function setKey($key)
     {
-      $this->key = $key;
-      return $this;
+        $this->key = $key;
+        return $this;
     }
 
     /**
@@ -61,8 +61,8 @@ class getBranchesByAddress
      */
     public function setAddress($address)
     {
-      $this->address = $address;
-      return $this;
+        $this->address = $address;
+        return $this;
     }
 
     /**
@@ -71,8 +71,8 @@ class getBranchesByAddress
      */
     public function setService($service)
     {
-      $this->service = $service;
-      return $this;
+        $this->service = $service;
+        return $this;
     }
 
     /**
@@ -81,8 +81,8 @@ class getBranchesByAddress
      */
     public function setTimeinfo($timeinfo)
     {
-      $this->timeinfo = $timeinfo;
-      return $this;
+        $this->timeinfo = $timeinfo;
+        return $this;
     }
 
     /**
@@ -91,8 +91,8 @@ class getBranchesByAddress
      */
     public function setHasPackageAcceptance($hasPackageAcceptance)
     {
-      $this->hasPackageAcceptance = $hasPackageAcceptance;
-      return $this;
+        $this->hasPackageAcceptance = $hasPackageAcceptance;
+        return $this;
     }
 
     /**
@@ -101,7 +101,7 @@ class getBranchesByAddress
      */
     public function setHasNoPackageAcceptance($hasNoPackageAcceptance)
     {
-      $this->hasNoPackageAcceptance = $hasNoPackageAcceptance;
-      return $this;
+        $this->hasNoPackageAcceptance = $hasNoPackageAcceptance;
+        return $this;
     }
 }

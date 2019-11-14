@@ -15,7 +15,7 @@ class serviceTypes
      */
     public function __construct($serviceType)
     {
-      $this->serviceType = $serviceType;
+        $this->serviceType = $serviceType;
     }
 
     /**
@@ -23,7 +23,7 @@ class serviceTypes
      */
     public function getServiceType()
     {
-      return $this->serviceType;
+        return $this->serviceType;
     }
 
     /**
@@ -32,8 +32,7 @@ class serviceTypes
      */
     public function setServiceType($serviceType)
     {
-      $this->serviceType = $serviceType;
-      return $this;
+        $this->serviceType = $serviceType;
+        return $this;
     }
-
 }

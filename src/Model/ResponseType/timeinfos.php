@@ -15,7 +15,7 @@ class timeinfos
      */
     public function __construct($timeinfo)
     {
-      $this->timeinfo = $timeinfo;
+        $this->timeinfo = $timeinfo;
     }
 
     /**
@@ -23,7 +23,7 @@ class timeinfos
      */
     public function getTimeinfo()
     {
-      return $this->timeinfo;
+        return $this->timeinfo;
     }
 
     /**
@@ -32,8 +32,7 @@ class timeinfos
      */
     public function setTimeinfo($timeinfo)
     {
-      $this->timeinfo = $timeinfo;
-      return $this;
+        $this->timeinfo = $timeinfo;
+        return $this;
     }
-
 }

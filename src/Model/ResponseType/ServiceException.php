@@ -18,7 +18,6 @@ class ServiceException
 
     public function __construct()
     {
-
     }
 
     /**
@@ -26,7 +25,7 @@ class ServiceException
      */
     public function getId()
     {
-      return $this->id;
+        return $this->id;
     }
 
     /**
@@ -35,8 +34,8 @@ class ServiceException
      */
     public function setId($id)
     {
-      $this->id = $id;
-      return $this;
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -44,7 +43,7 @@ class ServiceException
      */
     public function getMessage()
     {
-      return $this->message;
+        return $this->message;
     }
 
     /**
@@ -53,8 +52,7 @@ class ServiceException
      */
     public function setMessage($message)
     {
-      $this->message = $message;
-      return $this;
+        $this->message = $message;
+        return $this;
     }
-
 }

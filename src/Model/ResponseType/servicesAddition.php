@@ -15,7 +15,7 @@ class servicesAddition
      */
     public function __construct($serviceAddition)
     {
-      $this->serviceAddition = $serviceAddition;
+        $this->serviceAddition = $serviceAddition;
     }
 
     /**
@@ -23,7 +23,7 @@ class servicesAddition
      */
     public function getServiceAddition()
     {
-      return $this->serviceAddition;
+        return $this->serviceAddition;
     }
 
     /**
@@ -32,8 +32,7 @@ class servicesAddition
      */
     public function setServiceAddition($serviceAddition)
     {
-      $this->serviceAddition = $serviceAddition;
-      return $this;
+        $this->serviceAddition = $serviceAddition;
+        return $this;
     }
-
 }

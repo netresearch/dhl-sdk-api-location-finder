@@ -183,10 +183,10 @@ class automatFD
      */
     public function __construct($distance, $id, $objectId, $packstationId)
     {
-      $this->distance = $distance;
-      $this->id = $id;
-      $this->objectId = $objectId;
-      $this->packstationId = $packstationId;
+        $this->distance = $distance;
+        $this->id = $id;
+        $this->objectId = $objectId;
+        $this->packstationId = $packstationId;
     }
 
     /**
@@ -194,7 +194,7 @@ class automatFD
      */
     public function getAutomatType()
     {
-      return $this->automatType;
+        return $this->automatType;
     }
 
     /**
@@ -203,8 +203,8 @@ class automatFD
      */
     public function setAutomatType($automatType)
     {
-      $this->automatType = $automatType;
-      return $this;
+        $this->automatType = $automatType;
+        return $this;
     }
 
     /**
@@ -212,7 +212,7 @@ class automatFD
      */
     public function getPositionType()
     {
-      return $this->positionType;
+        return $this->positionType;
     }
 
     /**
@@ -221,8 +221,8 @@ class automatFD
      */
     public function setPositionType($positionType)
     {
-      $this->positionType = $positionType;
-      return $this;
+        $this->positionType = $positionType;
+        return $this;
     }
 
     /**
@@ -230,7 +230,7 @@ class automatFD
      */
     public function getOpStatusType()
     {
-      return $this->opStatusType;
+        return $this->opStatusType;
     }
 
     /**
@@ -239,8 +239,8 @@ class automatFD
      */
     public function setOpStatusType($opStatusType)
     {
-      $this->opStatusType = $opStatusType;
-      return $this;
+        $this->opStatusType = $opStatusType;
+        return $this;
     }
 
     /**
@@ -248,7 +248,7 @@ class automatFD
      */
     public function getHasXLPostfach()
     {
-      return $this->hasXLPostfach;
+        return $this->hasXLPostfach;
     }
 
     /**
@@ -257,8 +257,8 @@ class automatFD
      */
     public function setHasXLPostfach($hasXLPostfach)
     {
-      $this->hasXLPostfach = $hasXLPostfach;
-      return $this;
+        $this->hasXLPostfach = $hasXLPostfach;
+        return $this;
     }
 
     /**
@@ -266,7 +266,7 @@ class automatFD
      */
     public function getDistance()
     {
-      return $this->distance;
+        return $this->distance;
     }
 
     /**
@@ -275,8 +275,8 @@ class automatFD
      */
     public function setDistance($distance)
     {
-      $this->distance = $distance;
-      return $this;
+        $this->distance = $distance;
+        return $this;
     }
 
     /**
@@ -284,15 +284,15 @@ class automatFD
      */
     public function getOutOfServiceFrom()
     {
-      if ($this->outOfServiceFrom == null) {
-        return null;
-      } else {
-        try {
-          return new \DateTime($this->outOfServiceFrom);
-        } catch (\Exception $e) {
-          return false;
+        if ($this->outOfServiceFrom == null) {
+            return null;
+        } else {
+            try {
+                return new \DateTime($this->outOfServiceFrom);
+            } catch (\Exception $e) {
+                return false;
+            }
         }
-      }
     }
 
     /**
@@ -301,12 +301,12 @@ class automatFD
      */
     public function setOutOfServiceFrom(\DateTime $outOfServiceFrom = null)
     {
-      if ($outOfServiceFrom == null) {
-       $this->outOfServiceFrom = null;
-      } else {
-        $this->outOfServiceFrom = $outOfServiceFrom->format(\DateTime::ATOM);
-      }
-      return $this;
+        if ($outOfServiceFrom == null) {
+            $this->outOfServiceFrom = null;
+        } else {
+            $this->outOfServiceFrom = $outOfServiceFrom->format(\DateTime::ATOM);
+        }
+        return $this;
     }
 
     /**
@@ -314,7 +314,7 @@ class automatFD
      */
     public function getAddress()
     {
-      return $this->address;
+        return $this->address;
     }
 
     /**
@@ -323,8 +323,8 @@ class automatFD
      */
     public function setAddress($address)
     {
-      $this->address = $address;
-      return $this;
+        $this->address = $address;
+        return $this;
     }
 
     /**
@@ -332,7 +332,7 @@ class automatFD
      */
     public function getLocation()
     {
-      return $this->location;
+        return $this->location;
     }
 
     /**
@@ -341,8 +341,8 @@ class automatFD
      */
     public function setLocation($location)
     {
-      $this->location = $location;
-      return $this;
+        $this->location = $location;
+        return $this;
     }
 
     /**
@@ -350,7 +350,7 @@ class automatFD
      */
     public function getTimeinfos()
     {
-      return $this->timeinfos;
+        return $this->timeinfos;
     }
 
     /**
@@ -359,8 +359,8 @@ class automatFD
      */
     public function setTimeinfos($timeinfos)
     {
-      $this->timeinfos = $timeinfos;
-      return $this;
+        $this->timeinfos = $timeinfos;
+        return $this;
     }
 
     /**
@@ -368,7 +368,7 @@ class automatFD
      */
     public function getBranchType()
     {
-      return $this->branchType;
+        return $this->branchType;
     }
 
     /**
@@ -377,8 +377,8 @@ class automatFD
      */
     public function setBranchType($branchType)
     {
-      $this->branchType = $branchType;
-      return $this;
+        $this->branchType = $branchType;
+        return $this;
     }
 
     /**
@@ -386,7 +386,7 @@ class automatFD
      */
     public function getBranchTypeOz()
     {
-      return $this->branchTypeOz;
+        return $this->branchTypeOz;
     }
 
     /**
@@ -395,8 +395,8 @@ class automatFD
      */
     public function setBranchTypeOz($branchTypeOz)
     {
-      $this->branchTypeOz = $branchTypeOz;
-      return $this;
+        $this->branchTypeOz = $branchTypeOz;
+        return $this;
     }
 
     /**
@@ -404,7 +404,7 @@ class automatFD
      */
     public function getBranchTypePF()
     {
-      return $this->branchTypePF;
+        return $this->branchTypePF;
     }
 
     /**
@@ -413,8 +413,8 @@ class automatFD
      */
     public function setBranchTypePF($branchTypePF)
     {
-      $this->branchTypePF = $branchTypePF;
-      return $this;
+        $this->branchTypePF = $branchTypePF;
+        return $this;
     }
 
     /**
@@ -422,7 +422,7 @@ class automatFD
      */
     public function getHasNewService()
     {
-      return $this->hasNewService;
+        return $this->hasNewService;
     }
 
     /**
@@ -431,8 +431,8 @@ class automatFD
      */
     public function setHasNewService($hasNewService)
     {
-      $this->hasNewService = $hasNewService;
-      return $this;
+        $this->hasNewService = $hasNewService;
+        return $this;
     }
 
     /**
@@ -440,7 +440,7 @@ class automatFD
      */
     public function getHasBankingService()
     {
-      return $this->hasBankingService;
+        return $this->hasBankingService;
     }
 
     /**
@@ -449,8 +449,8 @@ class automatFD
      */
     public function setHasBankingService($hasBankingService)
     {
-      $this->hasBankingService = $hasBankingService;
-      return $this;
+        $this->hasBankingService = $hasBankingService;
+        return $this;
     }
 
     /**
@@ -458,7 +458,7 @@ class automatFD
      */
     public function getHasFinanceService()
     {
-      return $this->hasFinanceService;
+        return $this->hasFinanceService;
     }
 
     /**
@@ -467,8 +467,8 @@ class automatFD
      */
     public function setHasFinanceService($hasFinanceService)
     {
-      $this->hasFinanceService = $hasFinanceService;
-      return $this;
+        $this->hasFinanceService = $hasFinanceService;
+        return $this;
     }
 
     /**
@@ -476,7 +476,7 @@ class automatFD
      */
     public function getHasPobox()
     {
-      return $this->hasPobox;
+        return $this->hasPobox;
     }
 
     /**
@@ -485,8 +485,8 @@ class automatFD
      */
     public function setHasPobox($hasPobox)
     {
-      $this->hasPobox = $hasPobox;
-      return $this;
+        $this->hasPobox = $hasPobox;
+        return $this;
     }
 
     /**
@@ -494,7 +494,7 @@ class automatFD
      */
     public function getHasDhlExprIntern()
     {
-      return $this->hasDhlExprIntern;
+        return $this->hasDhlExprIntern;
     }
 
     /**
@@ -503,8 +503,8 @@ class automatFD
      */
     public function setHasDhlExprIntern($hasDhlExprIntern)
     {
-      $this->hasDhlExprIntern = $hasDhlExprIntern;
-      return $this;
+        $this->hasDhlExprIntern = $hasDhlExprIntern;
+        return $this;
     }
 
     /**
@@ -512,7 +512,7 @@ class automatFD
      */
     public function getHasCargoAcceptance()
     {
-      return $this->hasCargoAcceptance;
+        return $this->hasCargoAcceptance;
     }
 
     /**
@@ -521,8 +521,8 @@ class automatFD
      */
     public function setHasCargoAcceptance($hasCargoAcceptance)
     {
-      $this->hasCargoAcceptance = $hasCargoAcceptance;
-      return $this;
+        $this->hasCargoAcceptance = $hasCargoAcceptance;
+        return $this;
     }
 
     /**
@@ -530,7 +530,7 @@ class automatFD
      */
     public function getHasHandicappedAccess()
     {
-      return $this->hasHandicappedAccess;
+        return $this->hasHandicappedAccess;
     }
 
     /**
@@ -539,8 +539,8 @@ class automatFD
      */
     public function setHasHandicappedAccess($hasHandicappedAccess)
     {
-      $this->hasHandicappedAccess = $hasHandicappedAccess;
-      return $this;
+        $this->hasHandicappedAccess = $hasHandicappedAccess;
+        return $this;
     }
 
     /**
@@ -548,7 +548,7 @@ class automatFD
      */
     public function getHasParkingArea()
     {
-      return $this->hasParkingArea;
+        return $this->hasParkingArea;
     }
 
     /**
@@ -557,8 +557,8 @@ class automatFD
      */
     public function setHasParkingArea($hasParkingArea)
     {
-      $this->hasParkingArea = $hasParkingArea;
-      return $this;
+        $this->hasParkingArea = $hasParkingArea;
+        return $this;
     }
 
     /**
@@ -566,7 +566,7 @@ class automatFD
      */
     public function getHasCertificate()
     {
-      return $this->hasCertificate;
+        return $this->hasCertificate;
     }
 
     /**
@@ -575,8 +575,8 @@ class automatFD
      */
     public function setHasCertificate($hasCertificate)
     {
-      $this->hasCertificate = $hasCertificate;
-      return $this;
+        $this->hasCertificate = $hasCertificate;
+        return $this;
     }
 
     /**
@@ -584,7 +584,7 @@ class automatFD
      */
     public function getSellsPostbusTickets()
     {
-      return $this->sellsPostbusTickets;
+        return $this->sellsPostbusTickets;
     }
 
     /**
@@ -593,8 +593,8 @@ class automatFD
      */
     public function setSellsPostbusTickets($sellsPostbusTickets)
     {
-      $this->sellsPostbusTickets = $sellsPostbusTickets;
-      return $this;
+        $this->sellsPostbusTickets = $sellsPostbusTickets;
+        return $this;
     }
 
     /**
@@ -602,7 +602,7 @@ class automatFD
      */
     public function getOpeningEquals()
     {
-      return $this->openingEquals;
+        return $this->openingEquals;
     }
 
     /**
@@ -611,8 +611,8 @@ class automatFD
      */
     public function setOpeningEquals($openingEquals)
     {
-      $this->openingEquals = $openingEquals;
-      return $this;
+        $this->openingEquals = $openingEquals;
+        return $this;
     }
 
     /**
@@ -620,7 +620,7 @@ class automatFD
      */
     public function getNumFinanceCounsels()
     {
-      return $this->numFinanceCounsels;
+        return $this->numFinanceCounsels;
     }
 
     /**
@@ -629,8 +629,8 @@ class automatFD
      */
     public function setNumFinanceCounsels($numFinanceCounsels)
     {
-      $this->numFinanceCounsels = $numFinanceCounsels;
-      return $this;
+        $this->numFinanceCounsels = $numFinanceCounsels;
+        return $this;
     }
 
     /**
@@ -638,7 +638,7 @@ class automatFD
      */
     public function getDepotServiceNo()
     {
-      return $this->depotServiceNo;
+        return $this->depotServiceNo;
     }
 
     /**
@@ -647,8 +647,8 @@ class automatFD
      */
     public function setDepotServiceNo($depotServiceNo)
     {
-      $this->depotServiceNo = $depotServiceNo;
-      return $this;
+        $this->depotServiceNo = $depotServiceNo;
+        return $this;
     }
 
     /**
@@ -656,7 +656,7 @@ class automatFD
      */
     public function getDepotServiceOeffentlich()
     {
-      return $this->depotServiceOeffentlich;
+        return $this->depotServiceOeffentlich;
     }
 
     /**
@@ -665,8 +665,8 @@ class automatFD
      */
     public function setDepotServiceOeffentlich($depotServiceOeffentlich)
     {
-      $this->depotServiceOeffentlich = $depotServiceOeffentlich;
-      return $this;
+        $this->depotServiceOeffentlich = $depotServiceOeffentlich;
+        return $this;
     }
 
     /**
@@ -674,7 +674,7 @@ class automatFD
      */
     public function getWebsite()
     {
-      return $this->website;
+        return $this->website;
     }
 
     /**
@@ -683,8 +683,8 @@ class automatFD
      */
     public function setWebsite($website)
     {
-      $this->website = $website;
-      return $this;
+        $this->website = $website;
+        return $this;
     }
 
     /**
@@ -692,7 +692,7 @@ class automatFD
      */
     public function getExternalMarker()
     {
-      return $this->externalMarker;
+        return $this->externalMarker;
     }
 
     /**
@@ -701,8 +701,8 @@ class automatFD
      */
     public function setExternalMarker($externalMarker)
     {
-      $this->externalMarker = $externalMarker;
-      return $this;
+        $this->externalMarker = $externalMarker;
+        return $this;
     }
 
     /**
@@ -710,7 +710,7 @@ class automatFD
      */
     public function getServiceTypes()
     {
-      return $this->serviceTypes;
+        return $this->serviceTypes;
     }
 
     /**
@@ -719,8 +719,8 @@ class automatFD
      */
     public function setServiceTypes($serviceTypes)
     {
-      $this->serviceTypes = $serviceTypes;
-      return $this;
+        $this->serviceTypes = $serviceTypes;
+        return $this;
     }
 
     /**
@@ -728,7 +728,7 @@ class automatFD
      */
     public function getPoboxes()
     {
-      return $this->poboxes;
+        return $this->poboxes;
     }
 
     /**
@@ -737,8 +737,8 @@ class automatFD
      */
     public function setPoboxes($poboxes)
     {
-      $this->poboxes = $poboxes;
-      return $this;
+        $this->poboxes = $poboxes;
+        return $this;
     }
 
     /**
@@ -746,7 +746,7 @@ class automatFD
      */
     public function getServicesAddition()
     {
-      return $this->servicesAddition;
+        return $this->servicesAddition;
     }
 
     /**
@@ -755,8 +755,8 @@ class automatFD
      */
     public function setServicesAddition($servicesAddition)
     {
-      $this->servicesAddition = $servicesAddition;
-      return $this;
+        $this->servicesAddition = $servicesAddition;
+        return $this;
     }
 
     /**
@@ -764,7 +764,7 @@ class automatFD
      */
     public function getId()
     {
-      return $this->id;
+        return $this->id;
     }
 
     /**
@@ -773,8 +773,8 @@ class automatFD
      */
     public function setId($id)
     {
-      $this->id = $id;
-      return $this;
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -782,7 +782,7 @@ class automatFD
      */
     public function getObjectId()
     {
-      return $this->objectId;
+        return $this->objectId;
     }
 
     /**
@@ -791,8 +791,8 @@ class automatFD
      */
     public function setObjectId($objectId)
     {
-      $this->objectId = $objectId;
-      return $this;
+        $this->objectId = $objectId;
+        return $this;
     }
 
     /**
@@ -800,7 +800,7 @@ class automatFD
      */
     public function getPackstationId()
     {
-      return $this->packstationId;
+        return $this->packstationId;
     }
 
     /**
@@ -809,8 +809,7 @@ class automatFD
      */
     public function setPackstationId($packstationId)
     {
-      $this->packstationId = $packstationId;
-      return $this;
+        $this->packstationId = $packstationId;
+        return $this;
     }
-
 }

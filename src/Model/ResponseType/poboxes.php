@@ -15,7 +15,7 @@ class poboxes
      */
     public function __construct($pobox)
     {
-      $this->pobox = $pobox;
+        $this->pobox = $pobox;
     }
 
     /**
@@ -23,7 +23,7 @@ class poboxes
      */
     public function getPobox()
     {
-      return $this->pobox;
+        return $this->pobox;
     }
 
     /**
@@ -32,8 +32,7 @@ class poboxes
      */
     public function setPobox($pobox)
     {
-      $this->pobox = $pobox;
-      return $this;
+        $this->pobox = $pobox;
+        return $this;
     }
-
 }

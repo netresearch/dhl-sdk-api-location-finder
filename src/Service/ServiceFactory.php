@@ -22,6 +22,14 @@ use Psr\Log\LoggerInterface;
  */
 class ServiceFactory implements ServiceFactoryInterface
 {
+    /**
+     * @param string $appId
+     * @param string $appToken
+     * @param LoggerInterface $logger
+     * @param bool $sandboxMode
+     * @return LocationFinderServiceInterface
+     * @throws ServiceException
+     */
     public function createLocationFinderService(
         string $appId,
         string $appToken,

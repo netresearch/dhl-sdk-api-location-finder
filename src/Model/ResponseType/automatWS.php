@@ -84,11 +84,11 @@ class automatWS
      */
     public function __construct($distance, $hasMobileParcelStampPrintService, $id, $objectId, $packstationId)
     {
-      $this->distance = $distance;
-      $this->hasMobileParcelStampPrintService = $hasMobileParcelStampPrintService;
-      $this->id = $id;
-      $this->objectId = $objectId;
-      $this->packstationId = $packstationId;
+        $this->distance = $distance;
+        $this->hasMobileParcelStampPrintService = $hasMobileParcelStampPrintService;
+        $this->id = $id;
+        $this->objectId = $objectId;
+        $this->packstationId = $packstationId;
     }
 
     /**
@@ -96,7 +96,7 @@ class automatWS
      */
     public function getAutomatType()
     {
-      return $this->automatType;
+        return $this->automatType;
     }
 
     /**
@@ -105,8 +105,8 @@ class automatWS
      */
     public function setAutomatType($automatType)
     {
-      $this->automatType = $automatType;
-      return $this;
+        $this->automatType = $automatType;
+        return $this;
     }
 
     /**
@@ -114,7 +114,7 @@ class automatWS
      */
     public function getPositionType()
     {
-      return $this->positionType;
+        return $this->positionType;
     }
 
     /**
@@ -123,8 +123,8 @@ class automatWS
      */
     public function setPositionType($positionType)
     {
-      $this->positionType = $positionType;
-      return $this;
+        $this->positionType = $positionType;
+        return $this;
     }
 
     /**
@@ -132,7 +132,7 @@ class automatWS
      */
     public function getOpStatusType()
     {
-      return $this->opStatusType;
+        return $this->opStatusType;
     }
 
     /**
@@ -141,8 +141,8 @@ class automatWS
      */
     public function setOpStatusType($opStatusType)
     {
-      $this->opStatusType = $opStatusType;
-      return $this;
+        $this->opStatusType = $opStatusType;
+        return $this;
     }
 
     /**
@@ -150,7 +150,7 @@ class automatWS
      */
     public function getHasXLPostfach()
     {
-      return $this->hasXLPostfach;
+        return $this->hasXLPostfach;
     }
 
     /**
@@ -159,8 +159,8 @@ class automatWS
      */
     public function setHasXLPostfach($hasXLPostfach)
     {
-      $this->hasXLPostfach = $hasXLPostfach;
-      return $this;
+        $this->hasXLPostfach = $hasXLPostfach;
+        return $this;
     }
 
     /**
@@ -168,7 +168,7 @@ class automatWS
      */
     public function getDistance()
     {
-      return $this->distance;
+        return $this->distance;
     }
 
     /**
@@ -177,8 +177,8 @@ class automatWS
      */
     public function setDistance($distance)
     {
-      $this->distance = $distance;
-      return $this;
+        $this->distance = $distance;
+        return $this;
     }
 
     /**
@@ -186,15 +186,15 @@ class automatWS
      */
     public function getOutOfServiceFrom()
     {
-      if ($this->outOfServiceFrom == null) {
-        return null;
-      } else {
-        try {
-          return new \DateTime($this->outOfServiceFrom);
-        } catch (\Exception $e) {
-          return false;
+        if ($this->outOfServiceFrom == null) {
+            return null;
+        } else {
+            try {
+                return new \DateTime($this->outOfServiceFrom);
+            } catch (\Exception $e) {
+                return false;
+            }
         }
-      }
     }
 
     /**
@@ -203,12 +203,12 @@ class automatWS
      */
     public function setOutOfServiceFrom(\DateTime $outOfServiceFrom = null)
     {
-      if ($outOfServiceFrom == null) {
-       $this->outOfServiceFrom = null;
-      } else {
-        $this->outOfServiceFrom = $outOfServiceFrom->format(\DateTime::ATOM);
-      }
-      return $this;
+        if ($outOfServiceFrom == null) {
+            $this->outOfServiceFrom = null;
+        } else {
+            $this->outOfServiceFrom = $outOfServiceFrom->format(\DateTime::ATOM);
+        }
+        return $this;
     }
 
     /**
@@ -216,7 +216,7 @@ class automatWS
      */
     public function getAddress()
     {
-      return $this->address;
+        return $this->address;
     }
 
     /**
@@ -225,8 +225,8 @@ class automatWS
      */
     public function setAddress($address)
     {
-      $this->address = $address;
-      return $this;
+        $this->address = $address;
+        return $this;
     }
 
     /**
@@ -234,7 +234,7 @@ class automatWS
      */
     public function getLocation()
     {
-      return $this->location;
+        return $this->location;
     }
 
     /**
@@ -243,8 +243,8 @@ class automatWS
      */
     public function setLocation($location)
     {
-      $this->location = $location;
-      return $this;
+        $this->location = $location;
+        return $this;
     }
 
     /**
@@ -252,7 +252,7 @@ class automatWS
      */
     public function getBranch()
     {
-      return $this->branch;
+        return $this->branch;
     }
 
     /**
@@ -261,8 +261,8 @@ class automatWS
      */
     public function setBranch($branch)
     {
-      $this->branch = $branch;
-      return $this;
+        $this->branch = $branch;
+        return $this;
     }
 
     /**
@@ -270,7 +270,7 @@ class automatWS
      */
     public function getTimeinfos()
     {
-      return $this->timeinfos;
+        return $this->timeinfos;
     }
 
     /**
@@ -279,8 +279,8 @@ class automatWS
      */
     public function setTimeinfos($timeinfos)
     {
-      $this->timeinfos = $timeinfos;
-      return $this;
+        $this->timeinfos = $timeinfos;
+        return $this;
     }
 
     /**
@@ -288,7 +288,7 @@ class automatWS
      */
     public function getHasMobileParcelStampPrintService()
     {
-      return $this->hasMobileParcelStampPrintService;
+        return $this->hasMobileParcelStampPrintService;
     }
 
     /**
@@ -297,8 +297,8 @@ class automatWS
      */
     public function setHasMobileParcelStampPrintService($hasMobileParcelStampPrintService)
     {
-      $this->hasMobileParcelStampPrintService = $hasMobileParcelStampPrintService;
-      return $this;
+        $this->hasMobileParcelStampPrintService = $hasMobileParcelStampPrintService;
+        return $this;
     }
 
     /**
@@ -306,7 +306,7 @@ class automatWS
      */
     public function getId()
     {
-      return $this->id;
+        return $this->id;
     }
 
     /**
@@ -315,8 +315,8 @@ class automatWS
      */
     public function setId($id)
     {
-      $this->id = $id;
-      return $this;
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -324,7 +324,7 @@ class automatWS
      */
     public function getObjectId()
     {
-      return $this->objectId;
+        return $this->objectId;
     }
 
     /**
@@ -333,8 +333,8 @@ class automatWS
      */
     public function setObjectId($objectId)
     {
-      $this->objectId = $objectId;
-      return $this;
+        $this->objectId = $objectId;
+        return $this;
     }
 
     /**
@@ -342,7 +342,7 @@ class automatWS
      */
     public function getPackstationId()
     {
-      return $this->packstationId;
+        return $this->packstationId;
     }
 
     /**
@@ -351,8 +351,7 @@ class automatWS
      */
     public function setPackstationId($packstationId)
     {
-      $this->packstationId = $packstationId;
-      return $this;
+        $this->packstationId = $packstationId;
+        return $this;
     }
-
 }

@@ -13,7 +13,6 @@ class getBranchesByAddressResponse
 
     public function __construct()
     {
-
     }
 
     /**
@@ -21,7 +20,7 @@ class getBranchesByAddressResponse
      */
     public function getBranch()
     {
-      return $this->branch;
+        return $this->branch;
     }
 
     /**
@@ -30,8 +29,7 @@ class getBranchesByAddressResponse
      */
     public function setBranch(array $branch = null)
     {
-      $this->branch = $branch;
-      return $this;
+        $this->branch = $branch;
+        return $this;
     }
-
 }

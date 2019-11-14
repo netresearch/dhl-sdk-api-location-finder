@@ -33,7 +33,6 @@ class timeinfo
 
     public function __construct()
     {
-
     }
 
     /**
@@ -41,7 +40,7 @@ class timeinfo
      */
     public function getType()
     {
-      return $this->type;
+        return $this->type;
     }
 
     /**
@@ -50,8 +49,8 @@ class timeinfo
      */
     public function setType($type)
     {
-      $this->type = $type;
-      return $this;
+        $this->type = $type;
+        return $this;
     }
 
     /**
@@ -59,7 +58,7 @@ class timeinfo
      */
     public function getDayFrom()
     {
-      return $this->dayFrom;
+        return $this->dayFrom;
     }
 
     /**
@@ -68,8 +67,8 @@ class timeinfo
      */
     public function setDayFrom($dayFrom)
     {
-      $this->dayFrom = $dayFrom;
-      return $this;
+        $this->dayFrom = $dayFrom;
+        return $this;
     }
 
     /**
@@ -77,7 +76,7 @@ class timeinfo
      */
     public function getDayTo()
     {
-      return $this->dayTo;
+        return $this->dayTo;
     }
 
     /**
@@ -86,8 +85,8 @@ class timeinfo
      */
     public function setDayTo($dayTo)
     {
-      $this->dayTo = $dayTo;
-      return $this;
+        $this->dayTo = $dayTo;
+        return $this;
     }
 
     /**
@@ -95,7 +94,7 @@ class timeinfo
      */
     public function getTimeFrom()
     {
-      return $this->timeFrom;
+        return $this->timeFrom;
     }
 
     /**
@@ -104,8 +103,8 @@ class timeinfo
      */
     public function setTimeFrom($timeFrom)
     {
-      $this->timeFrom = $timeFrom;
-      return $this;
+        $this->timeFrom = $timeFrom;
+        return $this;
     }
 
     /**
@@ -113,7 +112,7 @@ class timeinfo
      */
     public function getTimeTo()
     {
-      return $this->timeTo;
+        return $this->timeTo;
     }
 
     /**
@@ -122,8 +121,7 @@ class timeinfo
      */
     public function setTimeTo($timeTo)
     {
-      $this->timeTo = $timeTo;
-      return $this;
+        $this->timeTo = $timeTo;
+        return $this;
     }
-
 }

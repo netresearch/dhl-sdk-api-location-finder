@@ -166,8 +166,8 @@ class branch
      */
     public function __construct($distance, $id)
     {
-      $this->distance = $distance;
-      $this->id = $id;
+        $this->distance = $distance;
+        $this->id = $id;
     }
 
     /**
@@ -175,7 +175,7 @@ class branch
      */
     public function getDenotation()
     {
-      return $this->denotation;
+        return $this->denotation;
     }
 
     /**
@@ -184,8 +184,8 @@ class branch
      */
     public function setDenotation($denotation)
     {
-      $this->denotation = $denotation;
-      return $this;
+        $this->denotation = $denotation;
+        return $this;
     }
 
     /**
@@ -193,7 +193,7 @@ class branch
      */
     public function getBranchType()
     {
-      return $this->branchType;
+        return $this->branchType;
     }
 
     /**
@@ -202,8 +202,8 @@ class branch
      */
     public function setBranchType($branchType)
     {
-      $this->branchType = $branchType;
-      return $this;
+        $this->branchType = $branchType;
+        return $this;
     }
 
     /**
@@ -211,7 +211,7 @@ class branch
      */
     public function getBranchTypeOz()
     {
-      return $this->branchTypeOz;
+        return $this->branchTypeOz;
     }
 
     /**
@@ -220,8 +220,8 @@ class branch
      */
     public function setBranchTypeOz($branchTypeOz)
     {
-      $this->branchTypeOz = $branchTypeOz;
-      return $this;
+        $this->branchTypeOz = $branchTypeOz;
+        return $this;
     }
 
     /**
@@ -229,7 +229,7 @@ class branch
      */
     public function getBranchTypePF()
     {
-      return $this->branchTypePF;
+        return $this->branchTypePF;
     }
 
     /**
@@ -238,8 +238,8 @@ class branch
      */
     public function setBranchTypePF($branchTypePF)
     {
-      $this->branchTypePF = $branchTypePF;
-      return $this;
+        $this->branchTypePF = $branchTypePF;
+        return $this;
     }
 
     /**
@@ -247,7 +247,7 @@ class branch
      */
     public function getHasNewService()
     {
-      return $this->hasNewService;
+        return $this->hasNewService;
     }
 
     /**
@@ -256,8 +256,8 @@ class branch
      */
     public function setHasNewService($hasNewService)
     {
-      $this->hasNewService = $hasNewService;
-      return $this;
+        $this->hasNewService = $hasNewService;
+        return $this;
     }
 
     /**
@@ -265,7 +265,7 @@ class branch
      */
     public function getHasBankingService()
     {
-      return $this->hasBankingService;
+        return $this->hasBankingService;
     }
 
     /**
@@ -274,8 +274,8 @@ class branch
      */
     public function setHasBankingService($hasBankingService)
     {
-      $this->hasBankingService = $hasBankingService;
-      return $this;
+        $this->hasBankingService = $hasBankingService;
+        return $this;
     }
 
     /**
@@ -283,7 +283,7 @@ class branch
      */
     public function getHasFinanceService()
     {
-      return $this->hasFinanceService;
+        return $this->hasFinanceService;
     }
 
     /**
@@ -292,8 +292,8 @@ class branch
      */
     public function setHasFinanceService($hasFinanceService)
     {
-      $this->hasFinanceService = $hasFinanceService;
-      return $this;
+        $this->hasFinanceService = $hasFinanceService;
+        return $this;
     }
 
     /**
@@ -301,7 +301,7 @@ class branch
      */
     public function getHasPobox()
     {
-      return $this->hasPobox;
+        return $this->hasPobox;
     }
 
     /**
@@ -310,8 +310,8 @@ class branch
      */
     public function setHasPobox($hasPobox)
     {
-      $this->hasPobox = $hasPobox;
-      return $this;
+        $this->hasPobox = $hasPobox;
+        return $this;
     }
 
     /**
@@ -319,7 +319,7 @@ class branch
      */
     public function getHasDhlExprIntern()
     {
-      return $this->hasDhlExprIntern;
+        return $this->hasDhlExprIntern;
     }
 
     /**
@@ -328,8 +328,8 @@ class branch
      */
     public function setHasDhlExprIntern($hasDhlExprIntern)
     {
-      $this->hasDhlExprIntern = $hasDhlExprIntern;
-      return $this;
+        $this->hasDhlExprIntern = $hasDhlExprIntern;
+        return $this;
     }
 
     /**
@@ -337,7 +337,7 @@ class branch
      */
     public function getHasCargoAcceptance()
     {
-      return $this->hasCargoAcceptance;
+        return $this->hasCargoAcceptance;
     }
 
     /**
@@ -346,8 +346,8 @@ class branch
      */
     public function setHasCargoAcceptance($hasCargoAcceptance)
     {
-      $this->hasCargoAcceptance = $hasCargoAcceptance;
-      return $this;
+        $this->hasCargoAcceptance = $hasCargoAcceptance;
+        return $this;
     }
 
     /**
@@ -355,7 +355,7 @@ class branch
      */
     public function getHasHandicappedAccess()
     {
-      return $this->hasHandicappedAccess;
+        return $this->hasHandicappedAccess;
     }
 
     /**
@@ -364,8 +364,8 @@ class branch
      */
     public function setHasHandicappedAccess($hasHandicappedAccess)
     {
-      $this->hasHandicappedAccess = $hasHandicappedAccess;
-      return $this;
+        $this->hasHandicappedAccess = $hasHandicappedAccess;
+        return $this;
     }
 
     /**
@@ -373,7 +373,7 @@ class branch
      */
     public function getHasParkingArea()
     {
-      return $this->hasParkingArea;
+        return $this->hasParkingArea;
     }
 
     /**
@@ -382,8 +382,8 @@ class branch
      */
     public function setHasParkingArea($hasParkingArea)
     {
-      $this->hasParkingArea = $hasParkingArea;
-      return $this;
+        $this->hasParkingArea = $hasParkingArea;
+        return $this;
     }
 
     /**
@@ -391,7 +391,7 @@ class branch
      */
     public function getHasCertificate()
     {
-      return $this->hasCertificate;
+        return $this->hasCertificate;
     }
 
     /**
@@ -400,8 +400,8 @@ class branch
      */
     public function setHasCertificate($hasCertificate)
     {
-      $this->hasCertificate = $hasCertificate;
-      return $this;
+        $this->hasCertificate = $hasCertificate;
+        return $this;
     }
 
     /**
@@ -409,7 +409,7 @@ class branch
      */
     public function getSellsPostbusTickets()
     {
-      return $this->sellsPostbusTickets;
+        return $this->sellsPostbusTickets;
     }
 
     /**
@@ -418,8 +418,8 @@ class branch
      */
     public function setSellsPostbusTickets($sellsPostbusTickets)
     {
-      $this->sellsPostbusTickets = $sellsPostbusTickets;
-      return $this;
+        $this->sellsPostbusTickets = $sellsPostbusTickets;
+        return $this;
     }
 
     /**
@@ -427,7 +427,7 @@ class branch
      */
     public function getOpeningEquals()
     {
-      return $this->openingEquals;
+        return $this->openingEquals;
     }
 
     /**
@@ -436,8 +436,8 @@ class branch
      */
     public function setOpeningEquals($openingEquals)
     {
-      $this->openingEquals = $openingEquals;
-      return $this;
+        $this->openingEquals = $openingEquals;
+        return $this;
     }
 
     /**
@@ -445,7 +445,7 @@ class branch
      */
     public function getNumFinanceCounsels()
     {
-      return $this->numFinanceCounsels;
+        return $this->numFinanceCounsels;
     }
 
     /**
@@ -454,8 +454,8 @@ class branch
      */
     public function setNumFinanceCounsels($numFinanceCounsels)
     {
-      $this->numFinanceCounsels = $numFinanceCounsels;
-      return $this;
+        $this->numFinanceCounsels = $numFinanceCounsels;
+        return $this;
     }
 
     /**
@@ -463,7 +463,7 @@ class branch
      */
     public function getDepotServiceNo()
     {
-      return $this->depotServiceNo;
+        return $this->depotServiceNo;
     }
 
     /**
@@ -472,8 +472,8 @@ class branch
      */
     public function setDepotServiceNo($depotServiceNo)
     {
-      $this->depotServiceNo = $depotServiceNo;
-      return $this;
+        $this->depotServiceNo = $depotServiceNo;
+        return $this;
     }
 
     /**
@@ -481,7 +481,7 @@ class branch
      */
     public function getDepotServiceOeffentlich()
     {
-      return $this->depotServiceOeffentlich;
+        return $this->depotServiceOeffentlich;
     }
 
     /**
@@ -490,8 +490,8 @@ class branch
      */
     public function setDepotServiceOeffentlich($depotServiceOeffentlich)
     {
-      $this->depotServiceOeffentlich = $depotServiceOeffentlich;
-      return $this;
+        $this->depotServiceOeffentlich = $depotServiceOeffentlich;
+        return $this;
     }
 
     /**
@@ -499,7 +499,7 @@ class branch
      */
     public function getWebsite()
     {
-      return $this->website;
+        return $this->website;
     }
 
     /**
@@ -508,8 +508,8 @@ class branch
      */
     public function setWebsite($website)
     {
-      $this->website = $website;
-      return $this;
+        $this->website = $website;
+        return $this;
     }
 
     /**
@@ -517,7 +517,7 @@ class branch
      */
     public function getExternalMarker()
     {
-      return $this->externalMarker;
+        return $this->externalMarker;
     }
 
     /**
@@ -526,8 +526,8 @@ class branch
      */
     public function setExternalMarker($externalMarker)
     {
-      $this->externalMarker = $externalMarker;
-      return $this;
+        $this->externalMarker = $externalMarker;
+        return $this;
     }
 
     /**
@@ -535,7 +535,7 @@ class branch
      */
     public function getDistance()
     {
-      return $this->distance;
+        return $this->distance;
     }
 
     /**
@@ -544,8 +544,8 @@ class branch
      */
     public function setDistance($distance)
     {
-      $this->distance = $distance;
-      return $this;
+        $this->distance = $distance;
+        return $this;
     }
 
     /**
@@ -553,7 +553,7 @@ class branch
      */
     public function getTypeIPC()
     {
-      return $this->typeIPC;
+        return $this->typeIPC;
     }
 
     /**
@@ -562,8 +562,8 @@ class branch
      */
     public function setTypeIPC($typeIPC)
     {
-      $this->typeIPC = $typeIPC;
-      return $this;
+        $this->typeIPC = $typeIPC;
+        return $this;
     }
 
     /**
@@ -571,7 +571,7 @@ class branch
      */
     public function getNameIPC()
     {
-      return $this->nameIPC;
+        return $this->nameIPC;
     }
 
     /**
@@ -580,8 +580,8 @@ class branch
      */
     public function setNameIPC($nameIPC)
     {
-      $this->nameIPC = $nameIPC;
-      return $this;
+        $this->nameIPC = $nameIPC;
+        return $this;
     }
 
     /**
@@ -589,7 +589,7 @@ class branch
      */
     public function getAddress()
     {
-      return $this->address;
+        return $this->address;
     }
 
     /**
@@ -598,8 +598,8 @@ class branch
      */
     public function setAddress($address)
     {
-      $this->address = $address;
-      return $this;
+        $this->address = $address;
+        return $this;
     }
 
     /**
@@ -607,7 +607,7 @@ class branch
      */
     public function getLocation()
     {
-      return $this->location;
+        return $this->location;
     }
 
     /**
@@ -616,8 +616,8 @@ class branch
      */
     public function setLocation($location)
     {
-      $this->location = $location;
-      return $this;
+        $this->location = $location;
+        return $this;
     }
 
     /**
@@ -625,7 +625,7 @@ class branch
      */
     public function getServiceTypes()
     {
-      return $this->serviceTypes;
+        return $this->serviceTypes;
     }
 
     /**
@@ -634,8 +634,8 @@ class branch
      */
     public function setServiceTypes($serviceTypes)
     {
-      $this->serviceTypes = $serviceTypes;
-      return $this;
+        $this->serviceTypes = $serviceTypes;
+        return $this;
     }
 
     /**
@@ -643,7 +643,7 @@ class branch
      */
     public function getAutomats()
     {
-      return $this->automats;
+        return $this->automats;
     }
 
     /**
@@ -652,8 +652,8 @@ class branch
      */
     public function setAutomats($automats)
     {
-      $this->automats = $automats;
-      return $this;
+        $this->automats = $automats;
+        return $this;
     }
 
     /**
@@ -661,7 +661,7 @@ class branch
      */
     public function getPoboxes()
     {
-      return $this->poboxes;
+        return $this->poboxes;
     }
 
     /**
@@ -670,8 +670,8 @@ class branch
      */
     public function setPoboxes($poboxes)
     {
-      $this->poboxes = $poboxes;
-      return $this;
+        $this->poboxes = $poboxes;
+        return $this;
     }
 
     /**
@@ -679,7 +679,7 @@ class branch
      */
     public function getTimeinfos()
     {
-      return $this->timeinfos;
+        return $this->timeinfos;
     }
 
     /**
@@ -688,8 +688,8 @@ class branch
      */
     public function setTimeinfos($timeinfos)
     {
-      $this->timeinfos = $timeinfos;
-      return $this;
+        $this->timeinfos = $timeinfos;
+        return $this;
     }
 
     /**
@@ -697,7 +697,7 @@ class branch
      */
     public function getServicesAddition()
     {
-      return $this->servicesAddition;
+        return $this->servicesAddition;
     }
 
     /**
@@ -706,8 +706,8 @@ class branch
      */
     public function setServicesAddition($servicesAddition)
     {
-      $this->servicesAddition = $servicesAddition;
-      return $this;
+        $this->servicesAddition = $servicesAddition;
+        return $this;
     }
 
     /**
@@ -715,7 +715,7 @@ class branch
      */
     public function getId()
     {
-      return $this->id;
+        return $this->id;
     }
 
     /**
@@ -724,8 +724,7 @@ class branch
      */
     public function setId($id)
     {
-      $this->id = $id;
-      return $this;
+        $this->id = $id;
+        return $this;
     }
-
 }

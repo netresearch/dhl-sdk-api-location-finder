@@ -46,8 +46,8 @@ class inputAddress
      */
     public function setStreet($street)
     {
-      $this->street = $street;
-      return $this;
+        $this->street = $street;
+        return $this;
     }
 
     /**
@@ -56,8 +56,8 @@ class inputAddress
      */
     public function setStreetNo($streetNo)
     {
-      $this->streetNo = $streetNo;
-      return $this;
+        $this->streetNo = $streetNo;
+        return $this;
     }
 
     /**
@@ -66,8 +66,8 @@ class inputAddress
      */
     public function setZip($zip)
     {
-      $this->zip = $zip;
-      return $this;
+        $this->zip = $zip;
+        return $this;
     }
 
     /**
@@ -76,8 +76,8 @@ class inputAddress
      */
     public function setCity($city)
     {
-      $this->city = $city;
-      return $this;
+        $this->city = $city;
+        return $this;
     }
 
     /**
@@ -86,7 +86,7 @@ class inputAddress
      */
     public function setCountryCode($countryCode)
     {
-      $this->countryCode = $countryCode;
-      return $this;
+        $this->countryCode = $countryCode;
+        return $this;
     }
 }

@@ -53,7 +53,6 @@ class address
 
     public function __construct()
     {
-
     }
 
     /**
@@ -61,7 +60,7 @@ class address
      */
     public function getStreet()
     {
-      return $this->street;
+        return $this->street;
     }
 
     /**
@@ -70,8 +69,8 @@ class address
      */
     public function setStreet($street)
     {
-      $this->street = $street;
-      return $this;
+        $this->street = $street;
+        return $this;
     }
 
     /**
@@ -79,7 +78,7 @@ class address
      */
     public function getStreetNo()
     {
-      return $this->streetNo;
+        return $this->streetNo;
     }
 
     /**
@@ -88,8 +87,8 @@ class address
      */
     public function setStreetNo($streetNo)
     {
-      $this->streetNo = $streetNo;
-      return $this;
+        $this->streetNo = $streetNo;
+        return $this;
     }
 
     /**
@@ -97,7 +96,7 @@ class address
      */
     public function getZip()
     {
-      return $this->zip;
+        return $this->zip;
     }
 
     /**
@@ -106,8 +105,8 @@ class address
      */
     public function setZip($zip)
     {
-      $this->zip = $zip;
-      return $this;
+        $this->zip = $zip;
+        return $this;
     }
 
     /**
@@ -115,7 +114,7 @@ class address
      */
     public function getCity()
     {
-      return $this->city;
+        return $this->city;
     }
 
     /**
@@ -124,8 +123,8 @@ class address
      */
     public function setCity($city)
     {
-      $this->city = $city;
-      return $this;
+        $this->city = $city;
+        return $this;
     }
 
     /**
@@ -133,7 +132,7 @@ class address
      */
     public function getDistrict()
     {
-      return $this->district;
+        return $this->district;
     }
 
     /**
@@ -142,8 +141,8 @@ class address
      */
     public function setDistrict($district)
     {
-      $this->district = $district;
-      return $this;
+        $this->district = $district;
+        return $this;
     }
 
     /**
@@ -151,7 +150,7 @@ class address
      */
     public function getRegion()
     {
-      return $this->region;
+        return $this->region;
     }
 
     /**
@@ -160,8 +159,8 @@ class address
      */
     public function setRegion($region)
     {
-      $this->region = $region;
-      return $this;
+        $this->region = $region;
+        return $this;
     }
 
     /**
@@ -169,7 +168,7 @@ class address
      */
     public function getCountry()
     {
-      return $this->country;
+        return $this->country;
     }
 
     /**
@@ -178,8 +177,8 @@ class address
      */
     public function setCountry($country)
     {
-      $this->country = $country;
-      return $this;
+        $this->country = $country;
+        return $this;
     }
 
     /**
@@ -187,7 +186,7 @@ class address
      */
     public function getIso3166()
     {
-      return $this->iso3166;
+        return $this->iso3166;
     }
 
     /**
@@ -196,8 +195,8 @@ class address
      */
     public function setIso3166($iso3166)
     {
-      $this->iso3166 = $iso3166;
-      return $this;
+        $this->iso3166 = $iso3166;
+        return $this;
     }
 
     /**
@@ -205,7 +204,7 @@ class address
      */
     public function getRemark()
     {
-      return $this->remark;
+        return $this->remark;
     }
 
     /**
@@ -214,8 +213,7 @@ class address
      */
     public function setRemark($remark)
     {
-      $this->remark = $remark;
-      return $this;
+        $this->remark = $remark;
+        return $this;
     }
-
 }

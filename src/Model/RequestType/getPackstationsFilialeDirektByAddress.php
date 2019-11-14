@@ -31,8 +31,8 @@ class getPackstationsFilialeDirektByAddress
      */
     public function setKey($key)
     {
-      $this->key = $key;
-      return $this;
+        $this->key = $key;
+        return $this;
     }
 
     /**
@@ -41,8 +41,7 @@ class getPackstationsFilialeDirektByAddress
      */
     public function setAddress($address)
     {
-      $this->address = $address;
-      return $this;
+        $this->address = $address;
+        return $this;
     }
-
 }

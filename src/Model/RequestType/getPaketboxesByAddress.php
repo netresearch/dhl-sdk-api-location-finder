@@ -31,8 +31,8 @@ class getPaketboxesByAddress
      */
     public function setKey($key)
     {
-      $this->key = $key;
-      return $this;
+        $this->key = $key;
+        return $this;
     }
 
     /**
@@ -41,7 +41,7 @@ class getPaketboxesByAddress
      */
     public function setAddress($address)
     {
-      $this->address = $address;
-      return $this;
+        $this->address = $address;
+        return $this;
     }
 }

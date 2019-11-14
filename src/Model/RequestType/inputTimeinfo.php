@@ -34,7 +34,6 @@ class inputTimeinfo
 
     public function __construct()
     {
-
     }
 
     /**
@@ -42,7 +41,7 @@ class inputTimeinfo
      */
     public function getIsOpenedToday()
     {
-      return $this->isOpenedToday;
+        return $this->isOpenedToday;
     }
 
     /**
@@ -51,8 +50,8 @@ class inputTimeinfo
      */
     public function setIsOpenedToday($isOpenedToday)
     {
-      $this->isOpenedToday = $isOpenedToday;
-      return $this;
+        $this->isOpenedToday = $isOpenedToday;
+        return $this;
     }
 
     /**
@@ -60,7 +59,7 @@ class inputTimeinfo
      */
     public function getWeekday()
     {
-      return $this->weekday;
+        return $this->weekday;
     }
 
     /**
@@ -69,8 +68,8 @@ class inputTimeinfo
      */
     public function setWeekday($weekday)
     {
-      $this->weekday = $weekday;
-      return $this;
+        $this->weekday = $weekday;
+        return $this;
     }
 
     /**
@@ -78,7 +77,7 @@ class inputTimeinfo
      */
     public function getTime()
     {
-      return $this->time;
+        return $this->time;
     }
 
     /**
@@ -87,7 +86,7 @@ class inputTimeinfo
      */
     public function setTime($time)
     {
-      $this->time = $time;
-      return $this;
+        $this->time = $time;
+        return $this;
     }
 }

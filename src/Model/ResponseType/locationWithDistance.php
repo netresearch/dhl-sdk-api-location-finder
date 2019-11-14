@@ -27,9 +27,9 @@ class locationWithDistance
      */
     public function __construct($latitude, $longitude, $distance)
     {
-      $this->latitude = $latitude;
-      $this->longitude = $longitude;
-      $this->distance = $distance;
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
+        $this->distance = $distance;
     }
 
     /**
@@ -37,7 +37,7 @@ class locationWithDistance
      */
     public function getLatitude()
     {
-      return $this->latitude;
+        return $this->latitude;
     }
 
     /**
@@ -46,8 +46,8 @@ class locationWithDistance
      */
     public function setLatitude($latitude)
     {
-      $this->latitude = $latitude;
-      return $this;
+        $this->latitude = $latitude;
+        return $this;
     }
 
     /**
@@ -55,7 +55,7 @@ class locationWithDistance
      */
     public function getLongitude()
     {
-      return $this->longitude;
+        return $this->longitude;
     }
 
     /**
@@ -64,8 +64,8 @@ class locationWithDistance
      */
     public function setLongitude($longitude)
     {
-      $this->longitude = $longitude;
-      return $this;
+        $this->longitude = $longitude;
+        return $this;
     }
 
     /**
@@ -73,7 +73,7 @@ class locationWithDistance
      */
     public function getDistance()
     {
-      return $this->distance;
+        return $this->distance;
     }
 
     /**
@@ -82,8 +82,7 @@ class locationWithDistance
      */
     public function setDistance($distance)
     {
-      $this->distance = $distance;
-      return $this;
+        $this->distance = $distance;
+        return $this;
     }
-
 }

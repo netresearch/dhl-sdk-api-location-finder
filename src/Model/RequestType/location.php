@@ -36,8 +36,8 @@ class location
      */
     public function __construct($latitude, $longitude)
     {
-      $this->latitude = $latitude;
-      $this->longitude = $longitude;
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
     }
     /**
      * @param string $countryCode
@@ -45,8 +45,7 @@ class location
      */
     public function setCountryCode($countryCode)
     {
-      $this->countryCode = $countryCode;
-      return $this;
+        $this->countryCode = $countryCode;
+        return $this;
     }
-
 }

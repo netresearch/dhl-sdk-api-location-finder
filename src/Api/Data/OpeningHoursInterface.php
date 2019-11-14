@@ -35,5 +35,4 @@ interface OpeningHoursInterface
      * @return string
      */
     public function getOpens(): string;
-
 }

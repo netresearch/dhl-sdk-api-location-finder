@@ -31,8 +31,8 @@ class getPaketboxesByCoordinate
      */
     public function setKey($key)
     {
-      $this->key = $key;
-      return $this;
+        $this->key = $key;
+        return $this;
     }
 
     /**
@@ -41,8 +41,7 @@ class getPaketboxesByCoordinate
      */
     public function setLocation($location)
     {
-      $this->location = $location;
-      return $this;
+        $this->location = $location;
+        return $this;
     }
-
 }

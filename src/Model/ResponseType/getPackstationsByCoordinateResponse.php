@@ -13,7 +13,6 @@ class getPackstationsByCoordinateResponse
 
     public function __construct()
     {
-
     }
 
     /**
@@ -21,7 +20,7 @@ class getPackstationsByCoordinateResponse
      */
     public function getPackstation()
     {
-      return $this->packstation;
+        return $this->packstation;
     }
 
     /**
@@ -30,8 +29,7 @@ class getPackstationsByCoordinateResponse
      */
     public function setPackstation(array $packstation = null)
     {
-      $this->packstation = $packstation;
-      return $this;
+        $this->packstation = $packstation;
+        return $this;
     }
-
 }

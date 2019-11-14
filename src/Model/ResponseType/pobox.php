@@ -111,8 +111,8 @@ class pobox
      */
     public function __construct($id, $pfaId)
     {
-      $this->id = $id;
-      $this->pfaId = $pfaId;
+        $this->id = $id;
+        $this->pfaId = $pfaId;
     }
 
     /**
@@ -120,7 +120,7 @@ class pobox
      */
     public function getBranchId()
     {
-      return $this->branchId;
+        return $this->branchId;
     }
 
     /**
@@ -129,8 +129,8 @@ class pobox
      */
     public function setBranchId($branchId)
     {
-      $this->branchId = $branchId;
-      return $this;
+        $this->branchId = $branchId;
+        return $this;
     }
 
     /**
@@ -138,7 +138,7 @@ class pobox
      */
     public function getRioId()
     {
-      return $this->rioId;
+        return $this->rioId;
     }
 
     /**
@@ -147,8 +147,8 @@ class pobox
      */
     public function setRioId($rioId)
     {
-      $this->rioId = $rioId;
-      return $this;
+        $this->rioId = $rioId;
+        return $this;
     }
 
     /**
@@ -156,7 +156,7 @@ class pobox
      */
     public function getHasPublicAccess()
     {
-      return $this->hasPublicAccess;
+        return $this->hasPublicAccess;
     }
 
     /**
@@ -165,8 +165,8 @@ class pobox
      */
     public function setHasPublicAccess($hasPublicAccess)
     {
-      $this->hasPublicAccess = $hasPublicAccess;
-      return $this;
+        $this->hasPublicAccess = $hasPublicAccess;
+        return $this;
     }
 
     /**
@@ -174,7 +174,7 @@ class pobox
      */
     public function getIsStandalone()
     {
-      return $this->isStandalone;
+        return $this->isStandalone;
     }
 
     /**
@@ -183,8 +183,8 @@ class pobox
      */
     public function setIsStandalone($isStandalone)
     {
-      $this->isStandalone = $isStandalone;
-      return $this;
+        $this->isStandalone = $isStandalone;
+        return $this;
     }
 
     /**
@@ -192,7 +192,7 @@ class pobox
      */
     public function getPfaPlace()
     {
-      return $this->pfaPlace;
+        return $this->pfaPlace;
     }
 
     /**
@@ -201,8 +201,8 @@ class pobox
      */
     public function setPfaPlace($pfaPlace)
     {
-      $this->pfaPlace = $pfaPlace;
-      return $this;
+        $this->pfaPlace = $pfaPlace;
+        return $this;
     }
 
     /**
@@ -210,7 +210,7 @@ class pobox
      */
     public function getHasDeliveryFunction()
     {
-      return $this->hasDeliveryFunction;
+        return $this->hasDeliveryFunction;
     }
 
     /**
@@ -219,8 +219,8 @@ class pobox
      */
     public function setHasDeliveryFunction($hasDeliveryFunction)
     {
-      $this->hasDeliveryFunction = $hasDeliveryFunction;
-      return $this;
+        $this->hasDeliveryFunction = $hasDeliveryFunction;
+        return $this;
     }
 
     /**
@@ -228,7 +228,7 @@ class pobox
      */
     public function getZipOfPfa()
     {
-      return $this->zipOfPfa;
+        return $this->zipOfPfa;
     }
 
     /**
@@ -237,8 +237,8 @@ class pobox
      */
     public function setZipOfPfa($zipOfPfa)
     {
-      $this->zipOfPfa = $zipOfPfa;
-      return $this;
+        $this->zipOfPfa = $zipOfPfa;
+        return $this;
     }
 
     /**
@@ -246,7 +246,7 @@ class pobox
      */
     public function getNumberPfLocker()
     {
-      return $this->numberPfLocker;
+        return $this->numberPfLocker;
     }
 
     /**
@@ -255,8 +255,8 @@ class pobox
      */
     public function setNumberPfLocker($numberPfLocker)
     {
-      $this->numberPfLocker = $numberPfLocker;
-      return $this;
+        $this->numberPfLocker = $numberPfLocker;
+        return $this;
     }
 
     /**
@@ -264,7 +264,7 @@ class pobox
      */
     public function getNumberPf()
     {
-      return $this->numberPf;
+        return $this->numberPf;
     }
 
     /**
@@ -273,8 +273,8 @@ class pobox
      */
     public function setNumberPf($numberPf)
     {
-      $this->numberPf = $numberPf;
-      return $this;
+        $this->numberPf = $numberPf;
+        return $this;
     }
 
     /**
@@ -282,7 +282,7 @@ class pobox
      */
     public function getNumberReservedPf()
     {
-      return $this->numberReservedPf;
+        return $this->numberReservedPf;
     }
 
     /**
@@ -291,8 +291,8 @@ class pobox
      */
     public function setNumberReservedPf($numberReservedPf)
     {
-      $this->numberReservedPf = $numberReservedPf;
-      return $this;
+        $this->numberReservedPf = $numberReservedPf;
+        return $this;
     }
 
     /**
@@ -300,7 +300,7 @@ class pobox
      */
     public function getPfLockerNrFrom()
     {
-      return $this->pfLockerNrFrom;
+        return $this->pfLockerNrFrom;
     }
 
     /**
@@ -309,8 +309,8 @@ class pobox
      */
     public function setPfLockerNrFrom($pfLockerNrFrom)
     {
-      $this->pfLockerNrFrom = $pfLockerNrFrom;
-      return $this;
+        $this->pfLockerNrFrom = $pfLockerNrFrom;
+        return $this;
     }
 
     /**
@@ -318,7 +318,7 @@ class pobox
      */
     public function getPfLockerNrTo()
     {
-      return $this->pfLockerNrTo;
+        return $this->pfLockerNrTo;
     }
 
     /**
@@ -327,8 +327,8 @@ class pobox
      */
     public function setPfLockerNrTo($pfLockerNrTo)
     {
-      $this->pfLockerNrTo = $pfLockerNrTo;
-      return $this;
+        $this->pfLockerNrTo = $pfLockerNrTo;
+        return $this;
     }
 
     /**
@@ -336,7 +336,7 @@ class pobox
      */
     public function getPfNrFrom()
     {
-      return $this->pfNrFrom;
+        return $this->pfNrFrom;
     }
 
     /**
@@ -345,8 +345,8 @@ class pobox
      */
     public function setPfNrFrom($pfNrFrom)
     {
-      $this->pfNrFrom = $pfNrFrom;
-      return $this;
+        $this->pfNrFrom = $pfNrFrom;
+        return $this;
     }
 
     /**
@@ -354,7 +354,7 @@ class pobox
      */
     public function getPfNrTo()
     {
-      return $this->pfNrTo;
+        return $this->pfNrTo;
     }
 
     /**
@@ -363,8 +363,8 @@ class pobox
      */
     public function setPfNrTo($pfNrTo)
     {
-      $this->pfNrTo = $pfNrTo;
-      return $this;
+        $this->pfNrTo = $pfNrTo;
+        return $this;
     }
 
     /**
@@ -372,7 +372,7 @@ class pobox
      */
     public function getAddress()
     {
-      return $this->address;
+        return $this->address;
     }
 
     /**
@@ -381,8 +381,8 @@ class pobox
      */
     public function setAddress($address)
     {
-      $this->address = $address;
-      return $this;
+        $this->address = $address;
+        return $this;
     }
 
     /**
@@ -390,7 +390,7 @@ class pobox
      */
     public function getLocation()
     {
-      return $this->location;
+        return $this->location;
     }
 
     /**
@@ -399,8 +399,8 @@ class pobox
      */
     public function setLocation($location)
     {
-      $this->location = $location;
-      return $this;
+        $this->location = $location;
+        return $this;
     }
 
     /**
@@ -408,7 +408,7 @@ class pobox
      */
     public function getBranch()
     {
-      return $this->branch;
+        return $this->branch;
     }
 
     /**
@@ -417,8 +417,8 @@ class pobox
      */
     public function setBranch($branch)
     {
-      $this->branch = $branch;
-      return $this;
+        $this->branch = $branch;
+        return $this;
     }
 
     /**
@@ -426,7 +426,7 @@ class pobox
      */
     public function getTimeinfos()
     {
-      return $this->timeinfos;
+        return $this->timeinfos;
     }
 
     /**
@@ -435,8 +435,8 @@ class pobox
      */
     public function setTimeinfos($timeinfos)
     {
-      $this->timeinfos = $timeinfos;
-      return $this;
+        $this->timeinfos = $timeinfos;
+        return $this;
     }
 
     /**
@@ -444,7 +444,7 @@ class pobox
      */
     public function getId()
     {
-      return $this->id;
+        return $this->id;
     }
 
     /**
@@ -453,8 +453,8 @@ class pobox
      */
     public function setId($id)
     {
-      $this->id = $id;
-      return $this;
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -462,7 +462,7 @@ class pobox
      */
     public function getPfaId()
     {
-      return $this->pfaId;
+        return $this->pfaId;
     }
 
     /**
@@ -471,8 +471,7 @@ class pobox
      */
     public function setPfaId($pfaId)
     {
-      $this->pfaId = $pfaId;
-      return $this;
+        $this->pfaId = $pfaId;
+        return $this;
     }
-
 }

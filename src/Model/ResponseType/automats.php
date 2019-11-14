@@ -15,7 +15,7 @@ class automats
      */
     public function __construct($automat)
     {
-      $this->automat = $automat;
+        $this->automat = $automat;
     }
 
     /**
@@ -23,7 +23,7 @@ class automats
      */
     public function getAutomat()
     {
-      return $this->automat;
+        return $this->automat;
     }
 
     /**
@@ -32,8 +32,7 @@ class automats
      */
     public function setAutomat($automat)
     {
-      $this->automat = $automat;
-      return $this;
+        $this->automat = $automat;
+        return $this;
     }
-
 }

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Dhl\Sdk\LocationFinder\Soap;
 
+use Dhl\Sdk\LocationFinder\Exception\DetailedServiceException;
 use Dhl\Sdk\LocationFinder\Model\RequestType\getBranchesByAddress;
 use Dhl\Sdk\LocationFinder\Model\RequestType\getBranchesByCoordinate;
 use Dhl\Sdk\LocationFinder\Model\RequestType\getPackstationsByAddress;
@@ -39,60 +40,88 @@ abstract class AbstractClient
     /**
      * @param getPackstationsByCoordinate $requestType
      * @return getPackstationsByCoordinateResponse
+     * @throws DetailedServiceException
      */
-    abstract public function getPackstationsByCoordinate(getPackstationsByCoordinate $requestType): getPackstationsByCoordinateResponse;
+    abstract public function getPackstationsByCoordinate(
+        getPackstationsByCoordinate $requestType
+    ): getPackstationsByCoordinateResponse;
 
     /**
      * @param getPackstationsByAddress $requestType
      * @return getPackstationsByAddressResponse
+     * @throws DetailedServiceException
      */
-    abstract public function getPackstationsByAddress(getPackstationsByAddress $requestType): getPackstationsByAddressResponse;
+    abstract public function getPackstationsByAddress(
+        getPackstationsByAddress $requestType
+    ): getPackstationsByAddressResponse;
 
     /**
      * @param getBranchesByAddress $requestType
      * @return getBranchesByAddressResponse
+     * @throws DetailedServiceException
      */
     abstract public function getBranchesByAddress(getBranchesByAddress $requestType): getBranchesByAddressResponse;
 
     /**
      * @param getBranchesByCoordinate $requestType
      * @return getBranchesByCoordinateResponse
+     * @throws DetailedServiceException
      */
-    abstract public function getBranchesByCoordinate(getBranchesByCoordinate $requestType): getBranchesByCoordinateResponse;
+    abstract public function getBranchesByCoordinate(
+        getBranchesByCoordinate $requestType
+    ): getBranchesByCoordinateResponse;
 
     /**
      * @param getPackstationsPaketboxesByAddress $requestType
      * @return getPackstationsPaketboxesByAddressResponse
+     * @throws DetailedServiceException
      */
-    abstract public function getPackstationsPaketboxesByAddress(getPackstationsPaketboxesByAddress $requestType): getPackstationsPaketboxesByAddressResponse;
+    abstract public function getPackstationsPaketboxesByAddress(
+        getPackstationsPaketboxesByAddress $requestType
+    ): getPackstationsPaketboxesByAddressResponse;
 
     /**
      * @param getPackstationsPaketboxesByCoordinate $requestType
      * @return getPackstationsPaketboxesByCoordinateResponse
+     * @throws DetailedServiceException
      */
-    abstract public function getPackstationsPaketboxesByCoordinate(getPackstationsPaketboxesByCoordinate $requestType): getPackstationsPaketboxesByCoordinateResponse;
+    abstract public function getPackstationsPaketboxesByCoordinate(
+        getPackstationsPaketboxesByCoordinate $requestType
+    ): getPackstationsPaketboxesByCoordinateResponse;
 
     /**
      * @param getPaketboxesByAddress $requestType
      * @return getPaketboxesByAddressResponse
+     * @throws DetailedServiceException
      */
-    abstract public function getPaketboxesByAddress(getPaketboxesByAddress $requestType): getPaketboxesByAddressResponse;
+    abstract public function getPaketboxesByAddress(
+        getPaketboxesByAddress $requestType
+    ): getPaketboxesByAddressResponse;
 
     /**
      * @param getPaketboxesByCoordinate $requestType
      * @return getPaketboxesByCoordinateResponse
+     * @throws DetailedServiceException
      */
-    abstract public function getPaketboxesByCoordinate(getPaketboxesByCoordinate $requestType): getPaketboxesByCoordinateResponse;
+    abstract public function getPaketboxesByCoordinate(
+        getPaketboxesByCoordinate $requestType
+    ): getPaketboxesByCoordinateResponse;
 
     /**
      * @param getPackstationsFilialeDirektByAddress $requestType
      * @return getPackstationsFilialeDirektByAddressResponse
+     * @throws DetailedServiceException
      */
-    abstract public function getPackstationsFilialeDirektByAddress(getPackstationsFilialeDirektByAddress $requestType): getPackstationsFilialeDirektByAddressResponse;
+    abstract public function getPackstationsFilialeDirektByAddress(
+        getPackstationsFilialeDirektByAddress $requestType
+    ): getPackstationsFilialeDirektByAddressResponse;
 
     /**
      * @param getPackstationsFilialeDirektByCoordinate $requestType
      * @return getPackstationsFilialeDirektByCoordinateResponse
+     * @throws DetailedServiceException
      */
-    abstract public function getPackstationsFilialeDirektByCoordinate(getPackstationsFilialeDirektByCoordinate $requestType): getPackstationsFilialeDirektByCoordinateResponse;
+    abstract public function getPackstationsFilialeDirektByCoordinate(
+        getPackstationsFilialeDirektByCoordinate $requestType
+    ): getPackstationsFilialeDirektByCoordinateResponse;
 }

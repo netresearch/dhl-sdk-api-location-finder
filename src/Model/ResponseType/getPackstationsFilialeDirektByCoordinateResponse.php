@@ -13,7 +13,6 @@ class getPackstationsFilialeDirektByCoordinateResponse
 
     public function __construct()
     {
-
     }
 
     /**
@@ -21,7 +20,7 @@ class getPackstationsFilialeDirektByCoordinateResponse
      */
     public function getPackstation_filialedirekt()
     {
-      return $this->packstation_filialedirekt;
+        return $this->packstation_filialedirekt;
     }
 
     /**
@@ -30,8 +29,7 @@ class getPackstationsFilialeDirektByCoordinateResponse
      */
     public function setPackstation_filialedirekt(array $packstation_filialedirekt = null)
     {
-      $this->packstation_filialedirekt = $packstation_filialedirekt;
-      return $this;
+        $this->packstation_filialedirekt = $packstation_filialedirekt;
+        return $this;
     }
-
 }

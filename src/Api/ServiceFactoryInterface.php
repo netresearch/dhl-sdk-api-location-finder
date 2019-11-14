@@ -19,6 +19,9 @@ use Psr\Log\LoggerInterface;
  */
 interface ServiceFactoryInterface
 {
+    /**
+     * The production base url is also read automatically from the WSDL.
+     */
     const BASE_URL_PRODUCTION = 'https://cig.dhl.de/services/production/soap';
     const BASE_URL_SANDBOX = 'https://cig.dhl.de/services/sandbox/soap';
 
