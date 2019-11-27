@@ -46,20 +46,20 @@ class Address implements AddressInterface
      * Address constructor.
      *
      * @param string $street
-     * @param string $streetNumber
+     * @param string|null $streetNumber
      * @param string $postalCode
      * @param string $city
      * @param string $country
      */
     public function __construct(
         string $street,
-        string $streetNumber,
+        $streetNumber,
         string $postalCode,
         string $city,
         string $country
     ) {
         $this->street = $street;
-        $this->streetNumber = $streetNumber;
+        $this->streetNumber = (string) $streetNumber;
         $this->postalCode = $postalCode;
         $this->city = $city;
         $this->country = $country;
