@@ -41,45 +41,58 @@ class PickupLocationsByAddressResponseMapper
 
         /** @var AutomatFD $packingStation */
         foreach ($response->getPackstationFilialedirekt() as $packingStation) {
-            $address = new Address(
-                $packingStation->getAddress()->getStreet(),
-                $packingStation->getAddress()->getStreetNo(),
-                $packingStation->getAddress()->getZip(),
-                $packingStation->getAddress()->getCity(),
-                $packingStation->getAddress()->getCountry()
-            );
-
-            $openingHours = [];
-
-            /** @var Timeinfo $timeInfo */
-            foreach ((array) $packingStation->getTimeinfos()->getTimeinfo() as $timeInfo) {
-                if ($timeInfo->getType() !== self::TIME_INFO_TYPE_STORE) {
-                    continue;
-                }
-
-                $openingHours[] = new OpeningHours(
-                    $timeInfo->getTimeFrom(),
-                    $timeInfo->getTimeTo(),
-                    $timeInfo->getDayTo()
-                );
-            }
-
             $location = new Location(
-                (string) $packingStation->getId(),
-                (string) $packingStation->getPackstationId(),
-                (string) $packingStation->getExternalMarker(),
-                (string) $packingStation->getBranchTypePF(),
-                $packingStation->getLocation()->getLatitude(),
-                $packingStation->getLocation()->getLongitude(),
-                $packingStation->getDistance(),
-                $address,
-                (array) $packingStation->getServicesAddition()->getServiceAddition(),
-                $openingHours
+                (string)$packingStation->getId(),
+                (string)$packingStation->getPackstationId() ?: $packingStation->getDepotServiceNo(),
+                (string)$packingStation->getExternalMarker(),
+                (string)$packingStation->getBranchTypePF(),
+                (float)$packingStation->getLocation()->getLatitude(),
+                (float)$packingStation->getLocation()->getLongitude(),
+                (int)$packingStation->getDistance(),
+                $this->mapAddress($packingStation),
+                (array)$packingStation->getServicesAddition()->getServiceAddition(),
+                $this->mapOpeningHours($packingStation)
             );
 
             $locations[] = $location;
         }
 
         return $locations;
+    }
+
+    /**
+     * @param AutomatFD $packingStation
+     * @return Address
+     */
+    private function mapAddress(AutomatFD $packingStation): Address
+    {
+        return new Address(
+            (string)$packingStation->getAddress()->getStreet(),
+            (string)$packingStation->getAddress()->getStreetNo(),
+            (string)$packingStation->getAddress()->getZip(),
+            (string)$packingStation->getAddress()->getCity(),
+            (string)$packingStation->getAddress()->getCountry()
+        );
+    }
+    /**
+     * @param AutomatFD $packingStation
+     * @return OpeningHours[]
+     */
+    private function mapOpeningHours(AutomatFD $packingStation): array
+    {
+        $openingHours = [];
+        /** @var Timeinfo $timeInfo */
+        foreach ((array)$packingStation->getTimeinfos()->getTimeinfo() as $timeInfo) {
+            if ($timeInfo->getType() !== self::TIME_INFO_TYPE_STORE) {
+                continue;
+            }
+
+            $openingHours[] = new OpeningHours(
+                $timeInfo->getTimeFrom(),
+                $timeInfo->getTimeTo(),
+                $timeInfo->getDayTo()
+            );
+        }
+        return $openingHours;
     }
 }
