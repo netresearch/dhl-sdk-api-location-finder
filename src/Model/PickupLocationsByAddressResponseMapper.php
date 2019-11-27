@@ -15,7 +15,7 @@ use Dhl\Sdk\LocationFinder\Service\LocationFinderService\Location;
 use Dhl\Sdk\LocationFinder\Service\LocationFinderService\OpeningHours;
 
 /**
- * This class maps the response from the "getPackstationsFilialeDirektByAddress" to into data models
+ * This class maps the response from the "GetPackstationsFilialeDirektByAddress" to into data models
  * implementing the public API data types.
  *
  * @author Rico Sonntag <rico.sonntag@netresearch.de>

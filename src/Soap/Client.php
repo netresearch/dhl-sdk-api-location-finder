@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace Dhl\Sdk\LocationFinder\Soap;
 
-use Dhl\Sdk\LocationFinder\Exception\DetailedServiceException;
 use Dhl\Sdk\LocationFinder\Model\RequestType\GetBranchesByAddress;
 use Dhl\Sdk\LocationFinder\Model\RequestType\GetBranchesByCoordinate;
 use Dhl\Sdk\LocationFinder\Model\RequestType\GetPackstationsByAddress;
@@ -54,16 +53,13 @@ class Client extends AbstractClient
     /**
      * @param GetPackstationsByCoordinate $requestType
      * @return GetPackstationsByCoordinateResponse
-     * @throws DetailedServiceException
+     * @throws \SoapFault
      */
     public function getPackstationsByCoordinate(
         GetPackstationsByCoordinate $requestType
     ): GetPackstationsByCoordinateResponse {
-        try {
-            $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
-        } catch (\SoapFault $e) {
-            throw new DetailedServiceException($e->getMessage(), $e->getCode(), $e);
-        }
+        /** @var GetPackstationsByCoordinateResponse $response */
+        $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
 
         return $response;
     }
@@ -71,15 +67,12 @@ class Client extends AbstractClient
     /**
      * @param GetPackstationsByAddress $requestType
      * @return GetPackstationsByAddressResponse
-     * @throws DetailedServiceException
+     * @throws \SoapFault
      */
     public function getPackstationsByAddress(GetPackstationsByAddress $requestType): GetPackstationsByAddressResponse
     {
-        try {
-            $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
-        } catch (\SoapFault $e) {
-            throw new DetailedServiceException($e->getMessage(), $e->getCode(), $e);
-        }
+        /** @var GetPackstationsByAddressResponse $response */
+        $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
 
         return $response;
     }
@@ -87,15 +80,11 @@ class Client extends AbstractClient
     /**
      * @param GetBranchesByAddress $requestType
      * @return GetBranchesByAddressResponse
-     * @throws DetailedServiceException
      */
     public function getBranchesByAddress(GetBranchesByAddress $requestType): GetBranchesByAddressResponse
     {
-        try {
-            $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
-        } catch (\SoapFault $e) {
-            throw new DetailedServiceException($e->getMessage(), $e->getCode(), $e);
-        }
+        /** @var GetBranchesByAddressResponse $response */
+        $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
 
         return $response;
     }
@@ -103,15 +92,12 @@ class Client extends AbstractClient
     /**
      * @param GetBranchesByCoordinate $requestType
      * @return GetBranchesByCoordinateResponse
-     * @throws DetailedServiceException
+     * @throws \SoapFault
      */
     public function getBranchesByCoordinate(GetBranchesByCoordinate $requestType): GetBranchesByCoordinateResponse
     {
-        try {
-            $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
-        } catch (\SoapFault $e) {
-            throw new DetailedServiceException($e->getMessage(), $e->getCode(), $e);
-        }
+        /** @var GetBranchesByCoordinateResponse $response */
+        $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
 
         return $response;
     }
@@ -119,16 +105,13 @@ class Client extends AbstractClient
     /**
      * @param GetPackstationsPaketboxesByAddress $requestType
      * @return GetPackstationsPaketboxesByAddressResponse
-     * @throws DetailedServiceException
+     * @throws \SoapFault
      */
     public function getPackstationsPaketboxesByAddress(
         GetPackstationsPaketboxesByAddress $requestType
     ): GetPackstationsPaketboxesByAddressResponse {
-        try {
-            $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
-        } catch (\SoapFault $e) {
-            throw new DetailedServiceException($e->getMessage(), $e->getCode(), $e);
-        }
+        /** @var GetPackstationsPaketboxesByAddressResponse $response */
+        $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
 
         return $response;
     }
@@ -136,16 +119,13 @@ class Client extends AbstractClient
     /**
      * @param GetPackstationsPaketboxesByCoordinate $requestType
      * @return GetPackstationsPaketboxesByCoordinateResponse
-     * @throws DetailedServiceException
+     * @throws \SoapFault
      */
     public function getPackstationsPaketboxesByCoordinate(
         GetPackstationsPaketboxesByCoordinate $requestType
     ): GetPackstationsPaketboxesByCoordinateResponse {
-        try {
-            $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
-        } catch (\SoapFault $e) {
-            throw new DetailedServiceException($e->getMessage(), $e->getCode(), $e);
-        }
+        /** @var GetPackstationsPaketboxesByCoordinateResponse $response */
+        $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
 
         return $response;
     }
@@ -153,15 +133,12 @@ class Client extends AbstractClient
     /**
      * @param GetPaketboxesByAddress $requestType
      * @return GetPaketboxesByAddressResponse
-     * @throws DetailedServiceException
+     * @throws \SoapFault
      */
     public function getPaketboxesByAddress(GetPaketboxesByAddress $requestType): GetPaketboxesByAddressResponse
     {
-        try {
-            $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
-        } catch (\SoapFault $e) {
-            throw new DetailedServiceException($e->getMessage(), $e->getCode(), $e);
-        }
+        /** @var GetPaketboxesByAddressResponse $response */
+        $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
 
         return $response;
     }
@@ -169,15 +146,12 @@ class Client extends AbstractClient
     /**
      * @param GetPaketboxesByCoordinate $requestType
      * @return GetPaketboxesByCoordinateResponse
-     * @throws DetailedServiceException
+     * @throws \SoapFault
      */
     public function getPaketboxesByCoordinate(GetPaketboxesByCoordinate $requestType): GetPaketboxesByCoordinateResponse
     {
-        try {
-            $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
-        } catch (\SoapFault $e) {
-            throw new DetailedServiceException($e->getMessage(), $e->getCode(), $e);
-        }
+        /** @var GetPaketboxesByCoordinateResponse $response */
+        $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
 
         return $response;
     }
@@ -185,16 +159,13 @@ class Client extends AbstractClient
     /**
      * @param GetPackstationsFilialeDirektByAddress $requestType
      * @return GetPackstationsFilialeDirektByAddressResponse
-     * @throws DetailedServiceException
+     * @throws \SoapFault
      */
     public function getPackstationsFilialeDirektByAddress(
         GetPackstationsFilialeDirektByAddress $requestType
     ): GetPackstationsFilialeDirektByAddressResponse {
-        try {
-            $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
-        } catch (\SoapFault $e) {
-            throw new DetailedServiceException($e->getMessage(), $e->getCode(), $e);
-        }
+        /** @var GetPackstationsFilialeDirektByAddressResponse $response */
+        $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
 
         return $response;
     }
@@ -202,16 +173,13 @@ class Client extends AbstractClient
     /**
      * @param GetPackstationsFilialeDirektByCoordinate $requestType
      * @return GetPackstationsFilialeDirektByCoordinateResponse
-     * @throws DetailedServiceException
+     * @throws \SoapFault
      */
     public function getPackstationsFilialeDirektByCoordinate(
         GetPackstationsFilialeDirektByCoordinate $requestType
     ): GetPackstationsFilialeDirektByCoordinateResponse {
-        try {
-            $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
-        } catch (\SoapFault $e) {
-            throw new DetailedServiceException($e->getMessage(), $e->getCode(), $e);
-        }
+        /** @var GetPackstationsFilialeDirektByCoordinateResponse $response */
+        $response = $this->soapClient->__soapCall(__FUNCTION__, [$requestType]);
 
         return $response;
     }

@@ -18,6 +18,7 @@ use Dhl\Sdk\LocationFinder\Model\RequestType\GetPackstationsPaketboxesByCoordina
 use Dhl\Sdk\LocationFinder\Model\RequestType\InputAddress;
 use Dhl\Sdk\LocationFinder\Soap\AbstractClient;
 use Psr\Log\LoggerInterface;
+use Psr\Log\LogLevel;
 
 /**
  * Class LocationFinderService
@@ -100,6 +101,7 @@ class LocationFinderService implements LocationFinderServiceInterface
     public function getPickUpLocationsByCoordinate(string $countryCode, float $latitude, float $longitude): array
     {
         $request = new GetBranchesByCoordinate();
+
         $response = $this->client->getBranchesByCoordinate($request);
         // todo(nr): Map response
 

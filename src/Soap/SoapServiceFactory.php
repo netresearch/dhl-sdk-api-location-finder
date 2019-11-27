@@ -45,6 +45,7 @@ class SoapServiceFactory implements ServiceFactoryInterface
         $pickupLocationsResponseMapper = new PickupLocationsByAddressResponseMapper();
 
         $pluginClient = new Client($this->soapClient);
+        $pluginClient = new LoggerDecorator($pluginClient, $this->soapClient, $logger);
 
         $service = new LocationFinderService(
             $pluginClient,
