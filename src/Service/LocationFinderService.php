@@ -11,11 +11,11 @@ use Dhl\Sdk\LocationFinder\Api\Data\LocationInterface;
 use Dhl\Sdk\LocationFinder\Api\LocationFinderServiceInterface;
 use Dhl\Sdk\LocationFinder\Exception\DetailedServiceException;
 use Dhl\Sdk\LocationFinder\Model\PickupLocationsByAddressResponseMapper;
-use Dhl\Sdk\LocationFinder\Model\RequestType\getBranchesByCoordinate;
-use Dhl\Sdk\LocationFinder\Model\RequestType\getPackstationsFilialeDirektByAddress;
-use Dhl\Sdk\LocationFinder\Model\RequestType\getPackstationsPaketboxesByAddress;
-use Dhl\Sdk\LocationFinder\Model\RequestType\getPackstationsPaketboxesByCoordinate;
-use Dhl\Sdk\LocationFinder\Model\RequestType\inputAddress;
+use Dhl\Sdk\LocationFinder\Model\RequestType\GetBranchesByCoordinate;
+use Dhl\Sdk\LocationFinder\Model\RequestType\GetPackstationsFilialeDirektByAddress;
+use Dhl\Sdk\LocationFinder\Model\RequestType\GetPackstationsPaketboxesByAddress;
+use Dhl\Sdk\LocationFinder\Model\RequestType\GetPackstationsPaketboxesByCoordinate;
+use Dhl\Sdk\LocationFinder\Model\RequestType\InputAddress;
 use Dhl\Sdk\LocationFinder\Soap\AbstractClient;
 use Psr\Log\LoggerInterface;
 
@@ -74,14 +74,14 @@ class LocationFinderService implements LocationFinderServiceInterface
         string $streetName = null,
         string $streetNo = null
     ): array {
-        $address = new inputAddress();
+        $address = new InputAddress();
         $address->setCountryCode($countryCode);
         $address->setZip($zip);
         $address->setCity($city);
         $address->setStreet($streetName);
         $address->setStreetNo($streetNo);
 
-        $request = new getPackstationsFilialeDirektByAddress();
+        $request = new GetPackstationsFilialeDirektByAddress();
         $request->setAddress($address);
         $request->setKey('');
 
@@ -99,7 +99,7 @@ class LocationFinderService implements LocationFinderServiceInterface
      */
     public function getPickUpLocationsByCoordinate(string $countryCode, float $latitude, float $longitude): array
     {
-        $request = new getBranchesByCoordinate();
+        $request = new GetBranchesByCoordinate();
         $response = $this->client->getBranchesByCoordinate($request);
         // todo(nr): Map response
 
@@ -122,20 +122,20 @@ class LocationFinderService implements LocationFinderServiceInterface
         string $streetName = null,
         string $streetNo = null
     ): array {
-        $address = new inputAddress();
+        $address = new InputAddress();
         $address->setCountryCode($countryCode);
         $address->setZip($zip);
         $address->setCity($city);
         $address->setStreet($streetName);
         $address->setStreetNo($streetNo);
 
-        $request = new getPackstationsPaketboxesByAddress();
+        $request = new GetPackstationsPaketboxesByAddress();
         $request->setAddress($address);
 
         $response = $this->client->getPackstationsPaketboxesByAddress($request);
         // todo(nr): Map response
 
-        return $response->getPackstation_paketbox();
+        return $response->getPackstationPaketbox();
     }
 
     /**
@@ -147,10 +147,10 @@ class LocationFinderService implements LocationFinderServiceInterface
      */
     public function getDropOffLocationsByCoordinate(string $countryCode, float $latitude, float $longitude): array
     {
-        $request = new getPackstationsPaketboxesByCoordinate();
+        $request = new GetPackstationsPaketboxesByCoordinate();
         $response = $this->client->getPackstationsPaketboxesByCoordinate($request);
         // todo(nr): Map response
 
-        return $response->getPackstation_paketbox();
+        return $response->getPackstationPaketbox();
     }
 }

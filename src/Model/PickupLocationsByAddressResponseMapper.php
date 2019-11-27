@@ -7,9 +7,9 @@ declare(strict_types=1);
 namespace Dhl\Sdk\LocationFinder\Model;
 
 use Dhl\Sdk\LocationFinder\Api\Data\LocationInterface;
-use Dhl\Sdk\LocationFinder\Model\ResponseType\automatFD;
-use Dhl\Sdk\LocationFinder\Model\ResponseType\getPackstationsFilialeDirektByAddressResponse;
-use Dhl\Sdk\LocationFinder\Model\ResponseType\timeinfo;
+use Dhl\Sdk\LocationFinder\Model\ResponseType\AutomatFD;
+use Dhl\Sdk\LocationFinder\Model\ResponseType\GetPackstationsFilialeDirektByAddressResponse;
+use Dhl\Sdk\LocationFinder\Model\ResponseType\Timeinfo;
 use Dhl\Sdk\LocationFinder\Service\LocationFinderService\Address;
 use Dhl\Sdk\LocationFinder\Service\LocationFinderService\Location;
 use Dhl\Sdk\LocationFinder\Service\LocationFinderService\OpeningHours;
@@ -31,16 +31,16 @@ class PickupLocationsByAddressResponseMapper
     /**
      * Map the webservice data structure to response objects suitable for third-party consumption.
      *
-     * @param getPackstationsFilialeDirektByAddressResponse $response
+     * @param GetPackstationsFilialeDirektByAddressResponse $response
      *
      * @return LocationInterface[]
      */
-    public function map(getPackstationsFilialeDirektByAddressResponse $response): array
+    public function map(GetPackstationsFilialeDirektByAddressResponse $response): array
     {
         $locations = [];
 
-        /** @var automatFD $packingStation */
-        foreach ($response->getPackstation_filialedirekt() as $packingStation) {
+        /** @var AutomatFD $packingStation */
+        foreach ($response->getPackstationFilialedirekt() as $packingStation) {
             $address = new Address(
                 $packingStation->getAddress()->getStreet(),
                 $packingStation->getAddress()->getStreetNo(),
@@ -51,7 +51,7 @@ class PickupLocationsByAddressResponseMapper
 
             $openingHours = [];
 
-            /** @var timeinfo $timeInfo */
+            /** @var Timeinfo $timeInfo */
             foreach ((array) $packingStation->getTimeinfos()->getTimeinfo() as $timeInfo) {
                 if ($timeInfo->getType() !== self::TIME_INFO_TYPE_STORE) {
                     continue;
