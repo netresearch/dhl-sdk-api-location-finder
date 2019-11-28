@@ -61,6 +61,9 @@ class PickupLocationsByAddressResponseMapper
     }
 
     /**
+     * Country code is not taken from $packingStation->getAddress()->getCountry()
+     * but hard-coded to "DE", because the API will always return "Deutschland".
+     *
      * @param AutomatFD $packingStation
      * @return Address
      */
@@ -71,7 +74,7 @@ class PickupLocationsByAddressResponseMapper
             (string)$packingStation->getAddress()->getStreetNo(),
             (string)$packingStation->getAddress()->getZip(),
             (string)$packingStation->getAddress()->getCity(),
-            (string)$packingStation->getAddress()->getCountry()
+            'DE'
         );
     }
     /**
