@@ -1,11 +1,11 @@
-# DHL Standortsuche Deutschland API SDK 
+# DHL Location Finder API SDK 
 
-The *DHL Standortsuche Deutschland* API SDK package offers an
-interface to the *DHL Standortsuche Deutschland API* services.
+The DHL Location Finder API SDK package offers an interface to the *DHL Standortsuche*.
+Use this SDK to get a list of DHL Paketboxes, parcel stations, and postal offices around a given address or a set of coordinates.
 
-Use this SDK to get a list of DHL parcel stations, postal offices, and "Paketboxen" around a given address or a set of coordinates.
-
-You can find developer documentation for this API here: <https://entwickler.dhl.de/group/ep/wsapis/standortsuche>
+The SDK currently uses the *DHL Standortsuche Deutschland API* to retrieve locations,
+although this may change in a future version.
+You can find developer documentation for the *DHL Standortsuche Deutschland API* at <https://entwickler.dhl.de/group/ep/wsapis/standortsuche>
 
 ## Requirements
 
@@ -36,47 +36,34 @@ $ composer remove dhl/sdk-api-location-finder
 ## Testing
 
 ```bash
-$ composer install
+$ composer update
 $ ./vendor/bin/phpunit -c test/phpunit.xml
 ```
 
 ## Features
 
-The SOAP Webservice allows the following operations:
+The SDK offers the following service methods:
 
-- **getPackstationsByAddress**:
-    - find parcel stations in a 15 km radius from a given address.
-- **getPackstationsByCoordinate**:
-    - find parcel stations in a 15 km radius from a given set of coordinates.
-- **getPaketboxesByAddress**:
-    - find "Paketboxen" in a 15 km radius from a given address.
-- **getPaketboxesByCoordinate**:
-    - find "Paketboxen" in a 15 km radius from a given set of coordinates.
-- **getPackstationsPaketboxesByAddress**:
-    - find parcel stations and "Paketboxen" in a 15 km radius from a given address.
-- **getPackstationsPaketboxesByCoordinate**:
-    - find parcel stations and "Paketboxen" in a 15 km radius from a given set of coordinates.
-- **getPackstationsFilialeDirektByAddress**:
-    - find Postfiliale Direkt postal offices and parcel stations in a 15 km radius from a given address.
-- **getPackstationsFilialeDirektByCoordinate**:
-    - find Postfiliale Direkt postal offices and parcel stations in a 15 km radius from a given set of coordinates.
-- **getBranchesByAddress**:
-    - find postal offices in a 15 km radius from a given address.
-- **getBranchesByCoordinate**:
-    - find postal offices in a 15 km radius from a given set of coordinates.
+- **getPickUpLocations**
+    - find pickup locations in a 15 km radius from a given address.
+- **getPickUpLocationsByCoordinate**
+    - find pickup locations in a 15 km radius from a given set of coordinates.
+- **getDropOffLocations**
+    - find drop-off locations in a 15 km radius from a given address.
+- **getDropOffLocationsByCoordinate**
+    - find drop-off locations in a 15 km radius from a given set of coordinates.
 
 ## Usage Example
 
 ```php
 $sandboxMode = false;
-$serviceFactory = new \Dhl\Sdk\LocationFinder\Soap\SoapServiceFactory();
+$serviceFactory = new \Dhl\Sdk\LocationFinder\Service\ServiceFactory();
 $service = $serviceFactory->createLocationFinderService(
     'appId',
     'appToken',
     new \Psr\Log\NullLogger(),
     $sandboxMode
 );
-
 
 try {
     /** @var \Dhl\Sdk\LocationFinder\Api\Data\LocationInterface $locations  */
@@ -105,5 +92,5 @@ foreach ($locations as $location) {
 The SDK will only ever throw exceptions of type `\Dhl\Sdk\LocationFinder\Exception\ServiceException`.
 Subclasses of `ServiceException` may be used to describe the kind of error that occurred. 
 
-A `\Dhl\Sdk\LocationFinder\Exception\DetailedServiceException` signifies that the exception holds a
+A `\Dhl\Sdk\LocationFinder\Exception\DetailedServiceException` indicates that the exception holds a
 human-readable error message suitable for display to the end-user.
