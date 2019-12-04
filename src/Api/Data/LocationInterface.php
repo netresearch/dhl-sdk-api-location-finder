@@ -76,7 +76,7 @@ interface LocationInterface
      *
      * @return string[]
      */
-    public function getServices(): array;
+    public function getServicesAddition(): array;
 
     /**
      * Returns a list of the opening hours of the DHL Service Point location.
@@ -84,4 +84,18 @@ interface LocationInterface
      * @return OpeningHoursInterface[]
      */
     public function getOpeningHours(): array;
+
+    /**
+     * Returns handicap access
+     *
+     * @return bool
+     */
+    public function hasHandicapAccess(): bool;
+
+    /**
+     * Returns parking area
+     *
+     * @return bool
+     */
+    public function hasParkingArea(): bool;
 }

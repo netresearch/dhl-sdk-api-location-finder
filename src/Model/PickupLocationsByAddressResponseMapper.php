@@ -51,7 +51,9 @@ class PickupLocationsByAddressResponseMapper
                 (int)$packingStation->getDistance(),
                 $this->mapAddress($packingStation),
                 (array)$packingStation->getServicesAddition()->getServiceAddition(),
-                $this->mapOpeningHours($packingStation)
+                $this->mapOpeningHours($packingStation),
+                $packingStation->getHasHandicappedAccess() ?: false,
+                $packingStation->getHasParkingArea() ?: false
             );
 
             $locations[] = $location;

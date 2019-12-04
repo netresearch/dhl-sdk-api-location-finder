@@ -70,6 +70,16 @@ class Location implements LocationInterface
     private $openingHours;
 
     /**
+     * @var bool
+     */
+    private $hasHandicapAccess;
+
+    /**
+     * @var bool
+     */
+    private $hasParkingArea;
+
+    /**
      * Location constructor.
      *
      * @param string $id
@@ -82,6 +92,8 @@ class Location implements LocationInterface
      * @param AddressInterface $address
      * @param string[] $services
      * @param OpeningHoursInterface[] $openingHours
+     * @param bool $hasHandicapAccess
+     * @param bool $hasParkingArea
      */
     public function __construct(
         string $id,
@@ -93,7 +105,9 @@ class Location implements LocationInterface
         int $distanceInMeter,
         AddressInterface $address,
         array $services,
-        array $openingHours
+        array $openingHours,
+        bool $hasHandicapAccess = false,
+        bool $hasParkingArea = false
     ) {
         $this->id = $id;
         $this->number = $number;
@@ -105,6 +119,8 @@ class Location implements LocationInterface
         $this->address = $address;
         $this->services = $services;
         $this->openingHours = $openingHours;
+        $this->hasHandicapAccess = $hasHandicapAccess;
+        $this->hasParkingArea = $hasParkingArea;
     }
 
     /**
@@ -192,7 +208,7 @@ class Location implements LocationInterface
      *
      * @return string[]
      */
-    public function getServices(): array
+    public function getServicesAddition(): array
     {
         return $this->services;
     }
@@ -205,5 +221,21 @@ class Location implements LocationInterface
     public function getOpeningHours(): array
     {
         return $this->openingHours;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasHandicapAccess(): bool
+    {
+        return $this->hasHandicapAccess;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasParkingArea(): bool
+    {
+        return $this->hasParkingArea;
     }
 }
