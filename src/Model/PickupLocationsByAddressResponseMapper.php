@@ -43,9 +43,9 @@ class PickupLocationsByAddressResponseMapper
         foreach ($response->getPackstationFilialedirekt() as $packingStation) {
             $location = new Location(
                 (string)$packingStation->getId(),
-                (string)$packingStation->getPackstationId() ?: $packingStation->getDepotServiceNo(),
-                (string)$packingStation->getExternalMarker(),
-                (string)$packingStation->getBranchTypePF(),
+                (string)($packingStation->getPackstationId() ?: $packingStation->getDepotServiceNo()),
+                (string)($packingStation->getExternalMarker() ?: $packingStation->getAddress()->getRemark()),
+                $this->mapType($packingStation),
                 (float)$packingStation->getLocation()->getLatitude(),
                 (float)$packingStation->getLocation()->getLongitude(),
                 (int)$packingStation->getDistance(),
@@ -97,5 +97,24 @@ class PickupLocationsByAddressResponseMapper
             );
         }
         return $openingHours;
+    }
+
+    /**
+     * @param AutomatFD $packingStation
+     * @return string
+     */
+    private function mapType(AutomatFD $packingStation): string
+    {
+        if ($packingStation->getPackstationId() > 0) {
+            return 'packstation';
+        }
+        if ($packingStation->getDepotServiceNo()) {
+            if ($packingStation->getBranchTypePF() === 'dhlpaketshop') {
+                return 'dhlpaketshop';
+            }
+            return 'postfiliale';
+        }
+
+        return '';
     }
 }
