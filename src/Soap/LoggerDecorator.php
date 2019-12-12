@@ -50,6 +50,7 @@ class LoggerDecorator extends AbstractDecorator
 
     /**
      * LoggerDecorator constructor.
+     *
      * @param AbstractClient $client
      * @param \SoapClient $soapClient
      * @param LoggerInterface $logger
@@ -65,13 +66,16 @@ class LoggerDecorator extends AbstractDecorator
         parent::__construct($client);
     }
 
+    /**
+     * @param \Closure $performRequest
+     * @return mixed
+     * @throws DetailedServiceException
+     */
     private function logCommunication(\Closure $performRequest)
     {
         $logLevel = LogLevel::INFO;
         try {
-            $response = $performRequest();
-
-            return $response;
+            return $performRequest();
         } catch (\SoapFault $fault) {
             $logLevel = LogLevel::ERROR;
 
@@ -91,7 +95,7 @@ class LoggerDecorator extends AbstractDecorator
 
     public function getPackstationsByCoordinate(
         GetPackstationsByCoordinate $requestType
-    ):GetPackstationsByCoordinateResponse {
+    ): GetPackstationsByCoordinateResponse {
         $performRequest = function () use ($requestType) {
             return parent::getPackstationsByCoordinate($requestType);
         };

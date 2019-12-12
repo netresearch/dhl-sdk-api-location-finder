@@ -7,18 +7,16 @@ declare(strict_types=1);
 
 namespace Dhl\Sdk\LocationFinder\Service;
 
-use Dhl\Sdk\LocationFinder\Api\Data\LocationInterface;
 use Dhl\Sdk\LocationFinder\Api\LocationFinderServiceInterface;
 use Dhl\Sdk\LocationFinder\Exception\DetailedServiceException;
-use Dhl\Sdk\LocationFinder\Model\PickupLocationsByAddressResponseMapper;
-use Dhl\Sdk\LocationFinder\Model\RequestType\GetBranchesByCoordinate;
+use Dhl\Sdk\LocationFinder\Model\PickupLocationsResponseMapper;
 use Dhl\Sdk\LocationFinder\Model\RequestType\GetPackstationsFilialeDirektByAddress;
+use Dhl\Sdk\LocationFinder\Model\RequestType\GetPackstationsFilialeDirektByCoordinate;
 use Dhl\Sdk\LocationFinder\Model\RequestType\GetPackstationsPaketboxesByAddress;
 use Dhl\Sdk\LocationFinder\Model\RequestType\GetPackstationsPaketboxesByCoordinate;
 use Dhl\Sdk\LocationFinder\Model\RequestType\InputAddress;
+use Dhl\Sdk\LocationFinder\Model\RequestType\Location;
 use Dhl\Sdk\LocationFinder\Soap\AbstractClient;
-use Psr\Log\LoggerInterface;
-use Psr\Log\LogLevel;
 
 /**
  * Class LocationFinderService
@@ -34,40 +32,24 @@ class LocationFinderService implements LocationFinderServiceInterface
     private $client;
 
     /**
-     * @var PickupLocationsByAddressResponseMapper
+     * @var PickupLocationsResponseMapper
      */
-    private $pickupLocationsByAddressResponseMapper;
-
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
+    private $pickupLocationsResponseMapper;
 
     /**
      * LocationFinderService constructor.
      *
      * @param AbstractClient $client
-     * @param PickupLocationsByAddressResponseMapper $pickupLocationsByAddressResponseMapper
+     * @param PickupLocationsResponseMapper $pickupLocationsResponseMapper
      */
     public function __construct(
         AbstractClient $client,
-        PickupLocationsByAddressResponseMapper $pickupLocationsByAddressResponseMapper,
-        LoggerInterface $logger
+        PickupLocationsResponseMapper $pickupLocationsResponseMapper
     ) {
         $this->client = $client;
-        $this->pickupLocationsByAddressResponseMapper = $pickupLocationsByAddressResponseMapper;
-        $this->logger = $logger;
+        $this->pickupLocationsResponseMapper = $pickupLocationsResponseMapper;
     }
 
-    /**
-     * @param string $countryCode
-     * @param string $zip
-     * @param string $city
-     * @param string|null $streetName
-     * @param string|null $streetNo
-     * @return LocationInterface[]
-     * @throws DetailedServiceException
-     */
     public function getPickUpLocations(
         string $countryCode,
         string $zip,
@@ -88,24 +70,21 @@ class LocationFinderService implements LocationFinderServiceInterface
 
         $response = $this->client->getPackstationsFilialeDirektByAddress($request);
 
-        return $this->pickupLocationsByAddressResponseMapper->map($response);
+        return $this->pickupLocationsResponseMapper->map($response->getPackstationFilialedirekt());
     }
 
-    /**
-     * @param string $countryCode
-     * @param float $latitude
-     * @param float $longitude
-     * @return array
-     * @throws DetailedServiceException
-     */
     public function getPickUpLocationsByCoordinate(string $countryCode, float $latitude, float $longitude): array
     {
-        $request = new GetBranchesByCoordinate();
+        $location = new Location($latitude, $longitude);
+        $location->setCountryCode($countryCode);
 
-        $response = $this->client->getBranchesByCoordinate($request);
-        // todo(nr): Map response
+        $request = new GetPackstationsFilialeDirektByCoordinate();
+        $request->setLocation($location);
+        $request->setKey('');
 
-        return $response->getBranch();
+        $response = $this->client->getPackstationsFilialeDirektByCoordinate($request);
+
+        return $this->pickupLocationsResponseMapper->map($response->getPackstationFilialedirekt());
     }
 
     /**

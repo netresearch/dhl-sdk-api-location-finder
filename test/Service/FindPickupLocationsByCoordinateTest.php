@@ -16,12 +16,12 @@ use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\Test\TestLogger;
 
 /**
- * Class FindPickupLocationsByAddressTest
+ * Class FindPickupLocationsByCoordinateTest
  *
  * @author Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link   https://www.netresearch.de/
  */
-class FindPickupLocationsByAddressTest extends \PHPUnit\Framework\TestCase
+class FindPickupLocationsByCoordinateTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test
@@ -30,7 +30,7 @@ class FindPickupLocationsByAddressTest extends \PHPUnit\Framework\TestCase
     public function findLocations()
     {
         $wsdl = __DIR__ . '/../Provider/_files/standortsuche/standortsuche-api-1.1.wsdl';
-        $response = __DIR__ . '/../Provider/_files/pickup/address_response.xml';
+        $response = __DIR__ . '/../Provider/_files/pickup/coordinate_response.xml';
 
         /** @var \SoapClient|MockObject $soapClient */
         $soapClient = $this->getMockFromWsdl(
@@ -60,7 +60,7 @@ class FindPickupLocationsByAddressTest extends \PHPUnit\Framework\TestCase
             true
         );
 
-        $locations = $service->getPickUpLocations('DE', '00000', 'Leipzig', 'Nonnenstraße', '11d');
+        $locations = $service->getPickUpLocationsByCoordinate('DE', 51.3286815, 12.3409894);
 
         self::assertNotEmpty($locations);
         self::assertContainsOnlyInstancesOf(LocationInterface::class, $locations);

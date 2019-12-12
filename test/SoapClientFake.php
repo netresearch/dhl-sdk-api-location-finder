@@ -2,6 +2,7 @@
 /**
  * See LICENSE.md for license details.
  */
+
 namespace Dhl\Sdk\LocationFinder\Test;
 
 /**
@@ -20,10 +21,11 @@ class SoapClientFake extends \SoapClient
      *
      * @param $wsdl
      * @param mixed[]|null $options
+     * @throws \SoapFault
      */
     public function __construct($wsdl, array $options = null)
     {
-        $wsdl = __DIR__ . '/Service/standortsuche-api-1.1.wsdl';
+        $wsdl = __DIR__ . '/Provider/_files/standortsuche/standortsuche-api-1.1.wsdl';
         parent::__construct($wsdl, $options);
     }
 }

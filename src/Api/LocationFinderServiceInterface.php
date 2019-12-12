@@ -20,6 +20,8 @@ use Dhl\Sdk\LocationFinder\Exception\DetailedServiceException;
 interface LocationFinderServiceInterface
 {
     /**
+     * Find pickup locations by given address parameters.
+     *
      * @param string $countryCode
      * @param string $zip
      * @param string $city
@@ -37,6 +39,8 @@ interface LocationFinderServiceInterface
     ): array;
 
     /**
+     * Find pickup locations by given coordinates.
+     *
      * @param string $countryCode
      * @param float $latitude
      * @param float $longitude

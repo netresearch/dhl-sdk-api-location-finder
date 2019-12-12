@@ -15,6 +15,11 @@ namespace Dhl\Sdk\LocationFinder\Api\Data;
  */
 interface LocationInterface
 {
+    const TYPE_PACKSTATION = 'packstation';
+    const TYPE_POSTOFFICE = 'postfiliale';
+    const TYPE_PARCELSHOP = 'paketshop';
+    const TYPE_OTHER = 'other';
+
     /**
      * Returns the id of the DHL Service Point location.
      *
