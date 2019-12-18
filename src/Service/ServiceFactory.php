@@ -63,8 +63,6 @@ class ServiceFactory implements ServiceFactoryInterface
         }
 
         $soapServiceFactory = new SoapServiceFactory($soapClient);
-        $shipmentService = $soapServiceFactory->createLocationFinderService($appId, $appToken, $logger, $sandboxMode);
-
-        return $shipmentService;
+        return $soapServiceFactory->createLocationFinderService($appId, $appToken, $logger, $sandboxMode);
     }
 }

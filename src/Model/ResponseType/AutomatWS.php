@@ -4,29 +4,28 @@ namespace Dhl\Sdk\LocationFinder\Model\ResponseType;
 
 class AutomatWS
 {
-
     /**
-     * @var int $automatType
+     * @var int|null $automatType
      */
     protected $automatType = null;
 
     /**
-     * @var int $positionType
+     * @var int|null $positionType
      */
     protected $positionType = null;
 
     /**
-     * @var int $opStatusType
+     * @var int|null $opStatusType
      */
     protected $opStatusType = null;
 
     /**
-     * @var boolean $hasXLPostfach
+     * @var boolean|null $hasXLPostfach
      */
     protected $hasXLPostfach = null;
 
     /**
-     * @var int $distance
+     * @var int|null $distance
      */
     protected $distance = null;
 
@@ -36,42 +35,42 @@ class AutomatWS
     protected $outOfServiceFrom = null;
 
     /**
-     * @var Address $address
+     * @var Address|null $address
      */
     protected $address = null;
 
     /**
-     * @var LocationWithDistance $location
+     * @var LocationWithDistance|null $location
      */
     protected $location = null;
 
     /**
-     * @var Branch $branch
+     * @var Branch|null $branch
      */
     protected $branch = null;
 
     /**
-     * @var Timeinfos $timeinfos
+     * @var Timeinfos|null $timeinfos
      */
     protected $timeinfos = null;
 
     /**
-     * @var boolean $hasMobileParcelStampPrintService
+     * @var boolean|null $hasMobileParcelStampPrintService
      */
     protected $hasMobileParcelStampPrintService = null;
 
     /**
-     * @var int $id
+     * @var int|null $id
      */
     protected $id = null;
 
     /**
-     * @var int $objectId
+     * @var int|null $objectId
      */
     protected $objectId = null;
 
     /**
-     * @var int $packstationId
+     * @var int|null $packstationId
      */
     protected $packstationId = null;
 
@@ -96,7 +95,7 @@ class AutomatWS
      */
     public function getAutomatType()
     {
-        return $this->automatType;
+        return (int) $this->automatType;
     }
 
     /**
@@ -114,7 +113,7 @@ class AutomatWS
      */
     public function getPositionType()
     {
-        return $this->positionType;
+        return (int) $this->positionType;
     }
 
     /**
@@ -132,7 +131,7 @@ class AutomatWS
      */
     public function getOpStatusType()
     {
-        return $this->opStatusType;
+        return (int) $this->opStatusType;
     }
 
     /**
@@ -150,7 +149,7 @@ class AutomatWS
      */
     public function getHasXLPostfach()
     {
-        return $this->hasXLPostfach;
+        return (bool) $this->hasXLPostfach;
     }
 
     /**
@@ -168,7 +167,7 @@ class AutomatWS
      */
     public function getDistance()
     {
-        return $this->distance;
+        return (int) $this->distance;
     }
 
     /**
@@ -182,6 +181,8 @@ class AutomatWS
     }
 
     /**
+     * fixme(nr): messy. be type-safe.
+     *
      * @return \DateTime|bool|null
      */
     public function getOutOfServiceFrom()
@@ -198,21 +199,24 @@ class AutomatWS
     }
 
     /**
+     * @fixme(nr): setters are never used in SOAP context, must not contain any logic.
+     *
      * @param \DateTime $outOfServiceFrom
      * @return \Dhl\Sdk\LocationFinder\Model\ResponseType\AutomatWS
      */
     public function setOutOfServiceFrom(\DateTime $outOfServiceFrom = null)
     {
-        if ($outOfServiceFrom == null) {
-            $this->outOfServiceFrom = null;
-        } else {
+        if ($outOfServiceFrom instanceof \DateTime) {
             $this->outOfServiceFrom = $outOfServiceFrom->format(\DateTime::ATOM);
+        } else {
+            $this->outOfServiceFrom = null;
         }
+
         return $this;
     }
 
     /**
-     * @return Address
+     * @return Address|null
      */
     public function getAddress()
     {
@@ -230,7 +234,7 @@ class AutomatWS
     }
 
     /**
-     * @return LocationWithDistance
+     * @return LocationWithDistance|null
      */
     public function getLocation()
     {
@@ -248,7 +252,7 @@ class AutomatWS
     }
 
     /**
-     * @return Branch
+     * @return Branch|null
      */
     public function getBranch()
     {
@@ -266,7 +270,7 @@ class AutomatWS
     }
 
     /**
-     * @return Timeinfos
+     * @return Timeinfos|null
      */
     public function getTimeinfos()
     {
@@ -288,7 +292,7 @@ class AutomatWS
      */
     public function getHasMobileParcelStampPrintService()
     {
-        return $this->hasMobileParcelStampPrintService;
+        return (bool) $this->hasMobileParcelStampPrintService;
     }
 
     /**
@@ -306,7 +310,7 @@ class AutomatWS
      */
     public function getId()
     {
-        return $this->id;
+        return (int) $this->id;
     }
 
     /**
@@ -324,7 +328,7 @@ class AutomatWS
      */
     public function getObjectId()
     {
-        return $this->objectId;
+        return (int) $this->objectId;
     }
 
     /**
@@ -342,7 +346,7 @@ class AutomatWS
      */
     public function getPackstationId()
     {
-        return $this->packstationId;
+        return (int) $this->packstationId;
     }
 
     /**

@@ -12,17 +12,16 @@ use Dhl\Sdk\LocationFinder\Exception\ServiceException;
 use Dhl\Sdk\LocationFinder\Serializer\ClassMap;
 use Dhl\Sdk\LocationFinder\Soap\SoapServiceFactory;
 use Dhl\Sdk\LocationFinder\Test\SoapClientFake;
-use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\Test\TestLogger;
 
 /**
  * Class FindPickupLocationsByCoordinateTest
  *
- * @author Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author Sebastian Ertner <sebastian.ertner@netresearch.de>
  * @link   https://www.netresearch.de/
  */
-class FindPickupLocationsByCoordinateTest extends TestCase
+class FindDropOffLocationsByCoordinateTest extends TestCase
 {
     /**
      * @test
@@ -31,7 +30,8 @@ class FindPickupLocationsByCoordinateTest extends TestCase
     public function findLocations()
     {
         $wsdl = __DIR__ . '/../Provider/_files/standortsuche/standortsuche-api-1.1.wsdl';
-        $response = __DIR__ . '/../Provider/_files/pickup/coordinate_response.xml';
+        $packstationResponse = __DIR__ . '/../Provider/_files/dropoff/packstation_coordinate_response.xml';
+        $paketboxResponse = __DIR__ . '/../Provider/_files/dropoff/paketbox_coordinate_response.xml';
 
         /** @var \SoapClient|MockObject $soapClient */
         $soapClient = $this->getMockFromWsdl(
@@ -47,9 +47,12 @@ class FindPickupLocationsByCoordinateTest extends TestCase
             ]
         );
 
-        $soapClient->expects(self::once())
-                   ->method('__doRequest')
-                   ->willReturn(file_get_contents($response));
+        $soapClient->expects(self::any())
+            ->method('__doRequest')
+            ->will($this->onConsecutiveCalls(
+                file_get_contents($packstationResponse),
+                file_get_contents($paketboxResponse)
+            ));
 
         $logger = new TestLogger();
 
@@ -61,10 +64,14 @@ class FindPickupLocationsByCoordinateTest extends TestCase
             true
         );
 
-        $locations = $service->getPickUpLocationsByCoordinate('DE', 51.3286815, 12.3409894);
+        $locations = $service->getDropOffLocationsByCoordinate(
+            'DE',
+            51.3773276,
+            12.4882551
+        );
 
         self::assertNotEmpty($locations);
         self::assertContainsOnlyInstancesOf(LocationInterface::class, $locations);
-        self::assertSame($locations[0]->getId(), '4067005');
+        self::assertSame($locations[0]->getId(), '4113872');
     }
 }

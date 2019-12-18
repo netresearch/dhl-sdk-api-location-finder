@@ -1,0 +1,432 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is  svn-revision#. --><xs:schema xmlns:tns="http://postfinder.dpag.de/webservice" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://postfinder.dpag.de/webservice">
+
+<xs:element name="ServiceException" type="tns:ServiceException"/>
+
+<xs:element name="getBranchesByAddress" type="tns:getBranchesByAddress"/>
+
+<xs:element name="getBranchesByAddressResponse" type="tns:getBranchesByAddressResponse"/>
+
+<xs:element name="getBranchesByCoordinate" type="tns:getBranchesByCoordinate"/>
+
+<xs:element name="getBranchesByCoordinateResponse" type="tns:getBranchesByCoordinateResponse"/>
+
+<xs:element name="getPackstationsByAddress" type="tns:getPackstationsByAddress"/>
+
+<xs:element name="getPackstationsByAddressResponse" type="tns:getPackstationsByAddressResponse"/>
+
+<xs:element name="getPackstationsByCoordinate" type="tns:getPackstationsByCoordinate"/>
+
+<xs:element name="getPackstationsByCoordinateResponse" type="tns:getPackstationsByCoordinateResponse"/>
+
+<xs:element name="getPackstationsFilialeDirektByAddress" type="tns:getPackstationsFilialeDirektByAddress"/>
+
+<xs:element name="getPackstationsFilialeDirektByAddressResponse" type="tns:getPackstationsFilialeDirektByAddressResponse"/>
+
+<xs:element name="getPackstationsFilialeDirektByCoordinate" type="tns:getPackstationsFilialeDirektByCoordinate"/>
+
+<xs:element name="getPackstationsFilialeDirektByCoordinateResponse" type="tns:getPackstationsFilialeDirektByCoordinateResponse"/>
+
+<xs:element name="getPackstationsPaketboxesByAddress" type="tns:getPackstationsPaketboxesByAddress"/>
+
+<xs:element name="getPackstationsPaketboxesByAddressResponse" type="tns:getPackstationsPaketboxesByAddressResponse"/>
+
+<xs:element name="getPackstationsPaketboxesByCoordinate" type="tns:getPackstationsPaketboxesByCoordinate"/>
+
+<xs:element name="getPackstationsPaketboxesByCoordinateResponse" type="tns:getPackstationsPaketboxesByCoordinateResponse"/>
+
+<xs:element name="getPaketboxesByAddress" type="tns:getPaketboxesByAddress"/>
+
+<xs:element name="getPaketboxesByAddressResponse" type="tns:getPaketboxesByAddressResponse"/>
+
+<xs:element name="getPaketboxesByCoordinate" type="tns:getPaketboxesByCoordinate"/>
+
+<xs:element name="getPaketboxesByCoordinateResponse" type="tns:getPaketboxesByCoordinateResponse"/>
+
+<xs:complexType name="getPackstationsByCoordinate">
+<xs:sequence>
+<xs:element name="key" type="xs:string" minOccurs="0"/>
+<xs:element name="location" type="tns:location" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="location">
+<xs:sequence>
+<xs:element name="latitude" type="xs:double"/>
+<xs:element name="longitude" type="xs:double"/>
+<xs:element name="countryCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPackstationsByCoordinateResponse">
+<xs:sequence>
+<xs:element name="packstation" type="tns:automatWS" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="automatWS">
+<xs:sequence>
+<xs:element name="automatType" type="xs:int" minOccurs="0"/>
+<xs:element name="positionType" type="xs:int" minOccurs="0"/>
+<xs:element name="opStatusType" type="xs:int" minOccurs="0"/>
+<xs:element name="hasXLPostfach" type="xs:boolean" minOccurs="0"/>
+<xs:element name="distance" type="xs:long"/>
+<xs:element name="outOfServiceFrom" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="address" type="tns:address" minOccurs="0"/>
+<xs:element name="location" type="tns:locationWithDistance" minOccurs="0"/>
+<xs:element name="branch" type="tns:branch" minOccurs="0"/>
+<xs:element name="timeinfos" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="timeinfo" type="tns:timeinfo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="hasMobileParcelStampPrintService" type="xs:boolean"/>
+</xs:sequence>
+<xs:attribute name="id" type="xs:long"/>
+<xs:attribute name="objectId" type="xs:long"/>
+<xs:attribute name="packstationId" type="xs:long"/>
+</xs:complexType>
+
+<xs:complexType name="address">
+<xs:sequence>
+<xs:element name="street" type="xs:string" minOccurs="0"/>
+<xs:element name="streetNo" type="xs:string" minOccurs="0"/>
+<xs:element name="zip" type="xs:string" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="district" type="xs:string" minOccurs="0"/>
+<xs:element name="region" type="xs:string" minOccurs="0"/>
+<xs:element name="country" type="xs:string" minOccurs="0"/>
+<xs:element name="iso3166" type="xs:string" minOccurs="0"/>
+<xs:element name="remark" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="locationWithDistance">
+<xs:sequence>
+<xs:element name="latitude" type="xs:double"/>
+<xs:element name="longitude" type="xs:double"/>
+<xs:element name="distance" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="branch">
+<xs:sequence>
+<xs:element name="denotation" type="xs:string" minOccurs="0"/>
+<xs:element name="branchType" type="xs:int" minOccurs="0"/>
+<xs:element name="branchTypeOz" type="xs:int" minOccurs="0"/>
+<xs:element name="branchTypePF" type="xs:string" minOccurs="0"/>
+<xs:element name="hasNewService" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasBankingService" type="xs:int" minOccurs="0"/>
+<xs:element name="hasFinanceService" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasPobox" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasDhlExprIntern" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasCargoAcceptance" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasHandicappedAccess" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasParkingArea" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasCertificate" type="xs:boolean" minOccurs="0"/>
+<xs:element name="sellsPostbusTickets" type="xs:boolean" minOccurs="0"/>
+<xs:element name="openingEquals" type="xs:boolean" minOccurs="0"/>
+<xs:element name="numFinanceCounsels" type="xs:double" minOccurs="0"/>
+<xs:element name="depotServiceNo" type="xs:string" minOccurs="0"/>
+<xs:element name="depotServiceOeffentlich" type="xs:boolean" minOccurs="0"/>
+<xs:element name="website" type="xs:string" minOccurs="0"/>
+<xs:element name="externalMarker" type="xs:string" minOccurs="0"/>
+<xs:element name="distance" type="xs:long"/>
+<xs:element name="typeIPC" type="xs:string" minOccurs="0"/>
+<xs:element name="nameIPC" type="xs:string" minOccurs="0"/>
+<xs:element name="address" type="tns:address" minOccurs="0"/>
+<xs:element name="location" type="tns:locationWithDistance" minOccurs="0"/>
+<xs:element name="serviceTypes" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="serviceType" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="automats" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="automat" type="tns:automatWS" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="poboxes" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="pobox" type="tns:pobox" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="timeinfos" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="timeinfo" type="tns:timeinfo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="servicesAddition" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="serviceAddition" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="id" type="xs:long"/>
+</xs:complexType>
+
+<xs:complexType name="pobox">
+<xs:sequence>
+<xs:element name="branchId" type="xs:long" minOccurs="0"/>
+<xs:element name="rioId" type="xs:string" minOccurs="0"/>
+<xs:element name="hasPublicAccess" type="xs:boolean" minOccurs="0"/>
+<xs:element name="isStandalone" type="xs:boolean" minOccurs="0"/>
+<xs:element name="pfaPlace" type="xs:string" minOccurs="0"/>
+<xs:element name="hasDeliveryFunction" type="xs:boolean" minOccurs="0"/>
+<xs:element name="zipOfPfa" type="xs:string" minOccurs="0"/>
+<xs:element name="numberPfLocker" type="xs:int" minOccurs="0"/>
+<xs:element name="numberPf" type="xs:int" minOccurs="0"/>
+<xs:element name="numberReservedPf" type="xs:int" minOccurs="0"/>
+<xs:element name="pfLockerNrFrom" type="xs:int" minOccurs="0"/>
+<xs:element name="pfLockerNrTo" type="xs:int" minOccurs="0"/>
+<xs:element name="pfNrFrom" type="xs:int" minOccurs="0"/>
+<xs:element name="pfNrTo" type="xs:int" minOccurs="0"/>
+<xs:element name="address" type="tns:address" minOccurs="0"/>
+<xs:element name="location" type="tns:locationWithDistance" minOccurs="0"/>
+<xs:element name="branch" type="tns:branch" minOccurs="0"/>
+<xs:element name="timeinfos" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="timeinfo" type="tns:timeinfo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="id" type="xs:long"/>
+<xs:attribute name="pfaId" type="xs:int"/>
+</xs:complexType>
+
+<xs:complexType name="timeinfo">
+<xs:sequence>
+<xs:element name="type" type="xs:int" minOccurs="0"/>
+<xs:element name="dayFrom" type="xs:int" minOccurs="0"/>
+<xs:element name="dayTo" type="xs:int" minOccurs="0"/>
+<xs:element name="timeFrom" type="xs:string" minOccurs="0"/>
+<xs:element name="timeTo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ServiceException">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBranchesByCoordinate">
+<xs:sequence>
+<xs:element name="key" type="xs:string" minOccurs="0"/>
+<xs:element name="location" type="tns:location" minOccurs="0"/>
+<xs:element name="service" type="xs:string" minOccurs="0"/>
+<xs:element name="timeinfo" type="tns:inputTimeinfo" minOccurs="0"/>
+<xs:element name="hasPackageAcceptance" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasNoPackageAcceptance" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="inputTimeinfo">
+<xs:sequence>
+<xs:element name="isOpenedToday" type="xs:boolean" minOccurs="0"/>
+<xs:element name="weekday" type="xs:string" minOccurs="0"/>
+<xs:element name="time" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBranchesByCoordinateResponse">
+<xs:sequence>
+<xs:element name="branch" type="tns:branch" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPackstationsFilialeDirektByAddress">
+<xs:sequence>
+<xs:element name="key" type="xs:string" minOccurs="0"/>
+<xs:element name="address" type="tns:inputAddress" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="inputAddress">
+<xs:sequence>
+<xs:element name="street" type="xs:string" minOccurs="0"/>
+<xs:element name="streetNo" type="xs:string" minOccurs="0"/>
+<xs:element name="zip" type="xs:string" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="countryCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPackstationsFilialeDirektByAddressResponse">
+<xs:sequence>
+<xs:element name="packstation_filialedirekt" type="tns:automatFD" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="automatFD">
+<xs:sequence>
+<xs:element name="automatType" type="xs:int" minOccurs="0"/>
+<xs:element name="positionType" type="xs:int" minOccurs="0"/>
+<xs:element name="opStatusType" type="xs:int" minOccurs="0"/>
+<xs:element name="hasXLPostfach" type="xs:boolean" minOccurs="0"/>
+<xs:element name="distance" type="xs:long"/>
+<xs:element name="outOfServiceFrom" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="address" type="tns:address" minOccurs="0"/>
+<xs:element name="location" type="tns:locationWithDistance" minOccurs="0"/>
+<xs:element name="timeinfos" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="timeinfo" type="tns:timeinfo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="branchType" type="xs:int" minOccurs="0"/>
+<xs:element name="branchTypeOz" type="xs:int" minOccurs="0"/>
+<xs:element name="branchTypePF" type="xs:string" minOccurs="0"/>
+<xs:element name="hasNewService" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasBankingService" type="xs:int" minOccurs="0"/>
+<xs:element name="hasFinanceService" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasPobox" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasDhlExprIntern" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasCargoAcceptance" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasHandicappedAccess" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasParkingArea" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasCertificate" type="xs:boolean" minOccurs="0"/>
+<xs:element name="sellsPostbusTickets" type="xs:boolean" minOccurs="0"/>
+<xs:element name="openingEquals" type="xs:boolean" minOccurs="0"/>
+<xs:element name="numFinanceCounsels" type="xs:double" minOccurs="0"/>
+<xs:element name="depotServiceNo" type="xs:string" minOccurs="0"/>
+<xs:element name="depotServiceOeffentlich" type="xs:boolean" minOccurs="0"/>
+<xs:element name="website" type="xs:string" minOccurs="0"/>
+<xs:element name="externalMarker" type="xs:string" minOccurs="0"/>
+<xs:element name="serviceTypes" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="serviceType" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="poboxes" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="pobox" type="tns:pobox" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="servicesAddition" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="serviceAddition" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="id" type="xs:long"/>
+<xs:attribute name="objectId" type="xs:long"/>
+<xs:attribute name="packstationId" type="xs:long"/>
+</xs:complexType>
+
+<xs:complexType name="getPaketboxesByCoordinate">
+<xs:sequence>
+<xs:element name="key" type="xs:string" minOccurs="0"/>
+<xs:element name="location" type="tns:location" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPaketboxesByCoordinateResponse">
+<xs:sequence>
+<xs:element name="paketbox" type="tns:automatWS" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPackstationsPaketboxesByAddress">
+<xs:sequence>
+<xs:element name="key" type="xs:string" minOccurs="0"/>
+<xs:element name="address" type="tns:inputAddress" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPackstationsPaketboxesByAddressResponse">
+<xs:sequence>
+<xs:element name="packstation_paketbox" type="tns:automatWS" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPackstationsPaketboxesByCoordinate">
+<xs:sequence>
+<xs:element name="key" type="xs:string" minOccurs="0"/>
+<xs:element name="location" type="tns:location" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPackstationsPaketboxesByCoordinateResponse">
+<xs:sequence>
+<xs:element name="packstation_paketbox" type="tns:automatWS" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBranchesByAddress">
+<xs:sequence>
+<xs:element name="key" type="xs:string" minOccurs="0"/>
+<xs:element name="address" type="tns:inputAddress" minOccurs="0"/>
+<xs:element name="service" type="xs:string" minOccurs="0"/>
+<xs:element name="timeinfo" type="tns:inputTimeinfo" minOccurs="0"/>
+<xs:element name="hasPackageAcceptance" type="xs:boolean" minOccurs="0"/>
+<xs:element name="hasNoPackageAcceptance" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBranchesByAddressResponse">
+<xs:sequence>
+<xs:element name="branch" type="tns:branch" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPackstationsByAddress">
+<xs:sequence>
+<xs:element name="key" type="xs:string" minOccurs="0"/>
+<xs:element name="address" type="tns:inputAddress" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPackstationsByAddressResponse">
+<xs:sequence>
+<xs:element name="packstation" type="tns:automatWS" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPackstationsFilialeDirektByCoordinate">
+<xs:sequence>
+<xs:element name="key" type="xs:string" minOccurs="0"/>
+<xs:element name="location" type="tns:location" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPackstationsFilialeDirektByCoordinateResponse">
+<xs:sequence>
+<xs:element name="packstation_filialedirekt" type="tns:automatFD" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPaketboxesByAddress">
+<xs:sequence>
+<xs:element name="key" type="xs:string" minOccurs="0"/>
+<xs:element name="address" type="tns:inputAddress" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPaketboxesByAddressResponse">
+<xs:sequence>
+<xs:element name="paketbox" type="tns:automatWS" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

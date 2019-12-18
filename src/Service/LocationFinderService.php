@@ -8,12 +8,12 @@ declare(strict_types=1);
 namespace Dhl\Sdk\LocationFinder\Service;
 
 use Dhl\Sdk\LocationFinder\Api\LocationFinderServiceInterface;
-use Dhl\Sdk\LocationFinder\Exception\DetailedServiceException;
-use Dhl\Sdk\LocationFinder\Model\PickupLocationsResponseMapper;
+use Dhl\Sdk\LocationFinder\Model\LocationResponseMapper;
+use Dhl\Sdk\LocationFinder\Model\PaketboxResponseMapper;
 use Dhl\Sdk\LocationFinder\Model\RequestType\GetPackstationsFilialeDirektByAddress;
 use Dhl\Sdk\LocationFinder\Model\RequestType\GetPackstationsFilialeDirektByCoordinate;
-use Dhl\Sdk\LocationFinder\Model\RequestType\GetPackstationsPaketboxesByAddress;
-use Dhl\Sdk\LocationFinder\Model\RequestType\GetPackstationsPaketboxesByCoordinate;
+use Dhl\Sdk\LocationFinder\Model\RequestType\GetPaketboxesByAddress;
+use Dhl\Sdk\LocationFinder\Model\RequestType\GetPaketboxesByCoordinate;
 use Dhl\Sdk\LocationFinder\Model\RequestType\InputAddress;
 use Dhl\Sdk\LocationFinder\Model\RequestType\Location;
 use Dhl\Sdk\LocationFinder\Soap\AbstractClient;
@@ -22,6 +22,7 @@ use Dhl\Sdk\LocationFinder\Soap\AbstractClient;
  * Class LocationFinderService
  *
  * @author Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author Sebastian Ertner <sebastian.ertner@netresearch.de>
  * @link   https://www.netresearch.de/
  */
 class LocationFinderService implements LocationFinderServiceInterface
@@ -32,22 +33,30 @@ class LocationFinderService implements LocationFinderServiceInterface
     private $client;
 
     /**
-     * @var PickupLocationsResponseMapper
+     * @var LocationResponseMapper
      */
-    private $pickupLocationsResponseMapper;
+    private $locationResponseMapper;
+
+    /**
+     * @var PaketboxResponseMapper
+     */
+    private $paketboxResponseMapper;
 
     /**
      * LocationFinderService constructor.
      *
      * @param AbstractClient $client
-     * @param PickupLocationsResponseMapper $pickupLocationsResponseMapper
+     * @param LocationResponseMapper $locationResponseMapper
+     * @param PaketboxResponseMapper $paketboxResponseMapper
      */
     public function __construct(
         AbstractClient $client,
-        PickupLocationsResponseMapper $pickupLocationsResponseMapper
+        LocationResponseMapper $locationResponseMapper,
+        PaketboxResponseMapper $paketboxResponseMapper
     ) {
         $this->client = $client;
-        $this->pickupLocationsResponseMapper = $pickupLocationsResponseMapper;
+        $this->locationResponseMapper = $locationResponseMapper;
+        $this->paketboxResponseMapper = $paketboxResponseMapper;
     }
 
     public function getPickUpLocations(
@@ -70,7 +79,7 @@ class LocationFinderService implements LocationFinderServiceInterface
 
         $response = $this->client->getPackstationsFilialeDirektByAddress($request);
 
-        return $this->pickupLocationsResponseMapper->map($response->getPackstationFilialedirekt());
+        return $this->locationResponseMapper->map($response->getPackstationFilialedirekt());
     }
 
     public function getPickUpLocationsByCoordinate(string $countryCode, float $latitude, float $longitude): array
@@ -84,18 +93,9 @@ class LocationFinderService implements LocationFinderServiceInterface
 
         $response = $this->client->getPackstationsFilialeDirektByCoordinate($request);
 
-        return $this->pickupLocationsResponseMapper->map($response->getPackstationFilialedirekt());
+        return $this->locationResponseMapper->map($response->getPackstationFilialedirekt());
     }
 
-    /**
-     * @param string $countryCode
-     * @param string $zip
-     * @param string $city
-     * @param string|null $streetName
-     * @param string|null $streetNo
-     * @return array
-     * @throws DetailedServiceException
-     */
     public function getDropOffLocations(
         string $countryCode,
         string $zip,
@@ -110,28 +110,42 @@ class LocationFinderService implements LocationFinderServiceInterface
         $address->setStreet($streetName);
         $address->setStreetNo($streetNo);
 
-        $request = new GetPackstationsPaketboxesByAddress();
+        $request = new GetPackstationsFilialeDirektByAddress();
         $request->setAddress($address);
+        $request->setKey('');
 
-        $response = $this->client->getPackstationsPaketboxesByAddress($request);
-        // todo(nr): Map response
+        $response = $this->client->getPackstationsFilialeDirektByAddress($request);
+        $dropOffLocations = $this->locationResponseMapper->map($response->getPackstationFilialedirekt());
 
-        return $response->getPackstationPaketbox();
+        $request = new GetPaketboxesByAddress();
+        $request->setAddress($address);
+        $request->setKey('');
+
+        $response = $this->client->getPaketboxesByAddress($request);
+        $parcelBoxes = $this->paketboxResponseMapper->map($response->getPaketbox());
+
+        return array_merge($dropOffLocations, $parcelBoxes);
     }
 
-    /**
-     * @param string $countryCode
-     * @param float $latitude
-     * @param float $longitude
-     * @return array
-     * @throws DetailedServiceException
-     */
     public function getDropOffLocationsByCoordinate(string $countryCode, float $latitude, float $longitude): array
     {
-        $request = new GetPackstationsPaketboxesByCoordinate();
-        $response = $this->client->getPackstationsPaketboxesByCoordinate($request);
-        // todo(nr): Map response
+        $location = new Location($latitude, $longitude);
+        $location->setCountryCode($countryCode);
 
-        return $response->getPackstationPaketbox();
+        $request = new GetPackstationsFilialeDirektByCoordinate();
+        $request->setLocation($location);
+        $request->setKey('');
+
+        $response = $this->client->getPackstationsFilialeDirektByCoordinate($request);
+        $dropOffLocations = $this->locationResponseMapper->map($response->getPackstationFilialedirekt());
+
+        $request = new GetPaketboxesByCoordinate();
+        $request->setLocation($location);
+        $request->setKey('');
+
+        $response = $this->client->getPaketboxesByCoordinate($request);
+        $parcelBoxes = $this->paketboxResponseMapper->map($response->getPaketbox());
+
+        return array_merge($dropOffLocations, $parcelBoxes);
     }
 }

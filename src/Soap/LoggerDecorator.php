@@ -81,8 +81,17 @@ class LoggerDecorator extends AbstractDecorator
 
             throw new DetailedServiceException($fault->getMessage(), $fault->getCode(), $fault);
         } finally {
-            $lastRequest = $this->soapClient->__getLastRequest();
-            $lastResponse = $this->soapClient->__getLastResponse();
+            $lastRequest = sprintf(
+                "%s\n%s",
+                $this->soapClient->__getLastRequestHeaders(),
+                $this->soapClient->__getLastRequest()
+            );
+
+            $lastResponse = sprintf(
+                "%s\n%s",
+                $this->soapClient->__getLastResponseHeaders(),
+                $this->soapClient->__getLastResponse()
+            );
 
             $this->logger->log($logLevel, $lastRequest);
             $this->logger->log($logLevel, $lastResponse);

@@ -18,6 +18,7 @@ interface LocationInterface
     const TYPE_PACKSTATION = 'packstation';
     const TYPE_POSTOFFICE = 'postfiliale';
     const TYPE_PARCELSHOP = 'paketshop';
+    const TYPE_PAKETBOX = 'paketbox';
     const TYPE_OTHER = 'other';
 
     /**

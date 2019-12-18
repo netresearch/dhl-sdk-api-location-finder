@@ -9,22 +9,35 @@ namespace Dhl\Sdk\LocationFinder\Model;
 use Dhl\Sdk\LocationFinder\Api\Data\LocationInterface;
 use Dhl\Sdk\LocationFinder\Model\ResponseType\AutomatFD;
 use Dhl\Sdk\LocationFinder\Model\ResponseType\Timeinfo;
+use Dhl\Sdk\LocationFinder\Model\ResponseType\Timeinfos;
 use Dhl\Sdk\LocationFinder\Service\LocationFinderService\Address;
 use Dhl\Sdk\LocationFinder\Service\LocationFinderService\Location;
 use Dhl\Sdk\LocationFinder\Service\LocationFinderService\OpeningHours;
 
 /**
- * Pickup location response mapper.
+ * Location response mapper.
  *
  * Map an array of `AutomatFD` response types into the SDK's public api data models.
  *
  * @author Rico Sonntag <rico.sonntag@netresearch.de>
  * @link   https://www.netresearch.de/
  */
-class PickupLocationsResponseMapper
+class LocationResponseMapper
 {
     /**
-     * Time info types.
+     * Regular opening hours type.
+     *
+     * The web service returns various semi-documented time info types.
+     * We only parse regular stores' opening times, not the Packstation
+     * access times or the various shipping products' cut-off times.
+     *
+     * 1 = Filialöffnungszeit
+     * 2 = Zugangszeiten SB-Bereich
+     * 7 = Schlusszeit Brief
+     * 8 = Schlusszeit Express
+     * 9 = Schlusszeit PostExpress National
+     * 10 = Schlusszeit PostExpress International
+     * 11 = Geschäftsöffnungszeit
      */
     const TIME_INFO_TYPE_STORE = 1;
 
@@ -58,8 +71,13 @@ class PickupLocationsResponseMapper
     private function mapOpeningHours(AutomatFD $packingStation): array
     {
         $openingHours = [];
+
+        if (!$packingStation->getTimeinfos() instanceof Timeinfos) {
+            return $openingHours;
+        }
+
         /** @var Timeinfo $timeInfo */
-        foreach ((array)$packingStation->getTimeinfos()->getTimeinfo() as $timeInfo) {
+        foreach ((array) $packingStation->getTimeinfos()->getTimeinfo() as $timeInfo) {
             if ($timeInfo->getType() !== self::TIME_INFO_TYPE_STORE) {
                 continue;
             }
@@ -85,29 +103,36 @@ class PickupLocationsResponseMapper
         $locations = [];
 
         foreach ($apiLocations as $apiLocation) {
+            if (!$apiLocation->getAddress() || !$apiLocation->getLocation()) {
+                continue;
+            }
+
             $locationType = $this->getLocationType($apiLocation);
 
             // country code is not returned from the web service but it's always "DE"
             $address = new Address(
-                (string) $apiLocation->getAddress()->getStreet(),
-                (string) $apiLocation->getAddress()->getStreetNo(),
-                (string) $apiLocation->getAddress()->getZip(),
-                (string) $apiLocation->getAddress()->getCity(),
+                $apiLocation->getAddress()->getStreet(),
+                $apiLocation->getAddress()->getStreetNo(),
+                $apiLocation->getAddress()->getZip(),
+                $apiLocation->getAddress()->getCity(),
                 'DE'
             );
 
             $openingHours = $this->mapOpeningHours($apiLocation);
+            $services = $apiLocation->getServicesAddition()
+                ? (array) $apiLocation->getServicesAddition()->getServiceAddition()
+                : [];
 
             $location = new Location(
                 (string) $apiLocation->getId(),
                 (string) ($apiLocation->getPackstationId() ?: $apiLocation->getDepotServiceNo()),
-                (string) ($apiLocation->getExternalMarker() ?: $apiLocation->getAddress()->getRemark()),
+                ($apiLocation->getExternalMarker() ?: $apiLocation->getAddress()->getRemark()),
                 $locationType,
-                (float) $apiLocation->getLocation()->getLatitude(),
-                (float) $apiLocation->getLocation()->getLongitude(),
-                (int) $apiLocation->getDistance(),
+                $apiLocation->getLocation()->getLatitude(),
+                $apiLocation->getLocation()->getLongitude(),
+                $apiLocation->getDistance(),
                 $address,
-                (array) $apiLocation->getServicesAddition()->getServiceAddition(),
+                $services,
                 $openingHours,
                 $apiLocation->getHasHandicappedAccess() ?: false,
                 $apiLocation->getHasParkingArea() ?: false

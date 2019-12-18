@@ -4,19 +4,18 @@ namespace Dhl\Sdk\LocationFinder\Model\ResponseType;
 
 class LocationWithDistance
 {
-
     /**
-     * @var float $latitude
+     * @var float|null $latitude
      */
     protected $latitude = null;
 
     /**
-     * @var float $longitude
+     * @var float|null $longitude
      */
     protected $longitude = null;
 
     /**
-     * @var int $distance
+     * @var int|null $distance
      */
     protected $distance = null;
 
@@ -37,7 +36,7 @@ class LocationWithDistance
      */
     public function getLatitude()
     {
-        return $this->latitude;
+        return (float) $this->latitude;
     }
 
     /**
@@ -55,7 +54,7 @@ class LocationWithDistance
      */
     public function getLongitude()
     {
-        return $this->longitude;
+        return (float) $this->longitude;
     }
 
     /**
@@ -73,7 +72,7 @@ class LocationWithDistance
      */
     public function getDistance()
     {
-        return $this->distance;
+        return (int) $this->distance;
     }
 
     /**

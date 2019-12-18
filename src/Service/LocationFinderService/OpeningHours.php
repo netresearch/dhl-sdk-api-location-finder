@@ -11,7 +11,6 @@ use Dhl\Sdk\LocationFinder\Api\Data\OpeningHoursInterface;
 /**
  * Class OpeningHours
  *
- * @api
  * @author Rico Sonntag <rico.sonntag@netresearch.de>
  * @link   https://www.netresearch.de/
  */

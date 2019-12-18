@@ -6,47 +6,47 @@ class Address
 {
 
     /**
-     * @var string $street
+     * @var string|null $street
      */
     protected $street = null;
 
     /**
-     * @var string $streetNo
+     * @var string|null $streetNo
      */
     protected $streetNo = null;
 
     /**
-     * @var string $zip
+     * @var string|null $zip
      */
     protected $zip = null;
 
     /**
-     * @var string $city
+     * @var string|null $city
      */
     protected $city = null;
 
     /**
-     * @var string $district
+     * @var string|null $district
      */
     protected $district = null;
 
     /**
-     * @var string $region
+     * @var string|null $region
      */
     protected $region = null;
 
     /**
-     * @var string $country
+     * @var string|null $country
      */
     protected $country = null;
 
     /**
-     * @var string $iso3166
+     * @var string|null $iso3166
      */
     protected $iso3166 = null;
 
     /**
-     * @var string $remark
+     * @var string|null $remark
      */
     protected $remark = null;
 
@@ -60,7 +60,7 @@ class Address
      */
     public function getStreet()
     {
-        return $this->street;
+        return (string) $this->street;
     }
 
     /**
@@ -78,7 +78,7 @@ class Address
      */
     public function getStreetNo()
     {
-        return $this->streetNo;
+        return (string) $this->streetNo;
     }
 
     /**
@@ -96,7 +96,7 @@ class Address
      */
     public function getZip()
     {
-        return $this->zip;
+        return (string) $this->zip;
     }
 
     /**
@@ -114,7 +114,7 @@ class Address
      */
     public function getCity()
     {
-        return $this->city;
+        return (string) $this->city;
     }
 
     /**
@@ -132,7 +132,7 @@ class Address
      */
     public function getDistrict()
     {
-        return $this->district;
+        return (string) $this->district;
     }
 
     /**
@@ -150,7 +150,7 @@ class Address
      */
     public function getRegion()
     {
-        return $this->region;
+        return (string) $this->region;
     }
 
     /**
@@ -168,7 +168,7 @@ class Address
      */
     public function getCountry()
     {
-        return $this->country;
+        return (string) $this->country;
     }
 
     /**
@@ -186,7 +186,7 @@ class Address
      */
     public function getIso3166()
     {
-        return $this->iso3166;
+        return (string) $this->iso3166;
     }
 
     /**
@@ -204,7 +204,7 @@ class Address
      */
     public function getRemark()
     {
-        return $this->remark;
+        return (string) $this->remark;
     }
 
     /**

@@ -83,7 +83,7 @@ foreach ($locations as $location) {
     echo $location->getType();
     echo $location->getLatitude();
     echo $location->getLongitude();
-    ...
+    // ...
 }
 ```
 

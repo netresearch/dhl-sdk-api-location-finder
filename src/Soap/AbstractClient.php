@@ -60,7 +60,9 @@ abstract class AbstractClient
      * @return GetBranchesByAddressResponse
      * @throws DetailedServiceException
      */
-    abstract public function getBranchesByAddress(GetBranchesByAddress $requestType): GetBranchesByAddressResponse;
+    abstract public function getBranchesByAddress(
+        GetBranchesByAddress $requestType
+    ): GetBranchesByAddressResponse;
 
     /**
      * @param GetBranchesByCoordinate $requestType

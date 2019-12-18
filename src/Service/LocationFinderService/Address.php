@@ -11,7 +11,6 @@ use Dhl\Sdk\LocationFinder\Api\Data\AddressInterface;
 /**
  * Class Address
  *
- * @api
  * @author Rico Sonntag <rico.sonntag@netresearch.de>
  * @link   https://www.netresearch.de/
  */

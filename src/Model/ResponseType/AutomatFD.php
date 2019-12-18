@@ -4,29 +4,28 @@ namespace Dhl\Sdk\LocationFinder\Model\ResponseType;
 
 class AutomatFD
 {
-
     /**
-     * @var int $automatType
+     * @var int|null $automatType
      */
     protected $automatType = null;
 
     /**
-     * @var int $positionType
+     * @var int|null $positionType
      */
     protected $positionType = null;
 
     /**
-     * @var int $opStatusType
+     * @var int|null $opStatusType
      */
     protected $opStatusType = null;
 
     /**
-     * @var boolean $hasXLPostfach
+     * @var boolean|null $hasXLPostfach
      */
     protected $hasXLPostfach = null;
 
     /**
-     * @var int $distance
+     * @var int|null $distance
      */
     protected $distance = null;
 
@@ -36,142 +35,142 @@ class AutomatFD
     protected $outOfServiceFrom = null;
 
     /**
-     * @var Address $address
+     * @var Address|null $address
      */
     protected $address = null;
 
     /**
-     * @var LocationWithDistance $location
+     * @var LocationWithDistance|null $location
      */
     protected $location = null;
 
     /**
-     * @var Timeinfos $timeinfos
+     * @var Timeinfos|null $timeinfos
      */
     protected $timeinfos = null;
 
     /**
-     * @var int $branchType
+     * @var int|null $branchType
      */
     protected $branchType = null;
 
     /**
-     * @var int $branchTypeOz
+     * @var int|null $branchTypeOz
      */
     protected $branchTypeOz = null;
 
     /**
-     * @var string $branchTypePF
+     * @var string|null $branchTypePF
      */
     protected $branchTypePF = null;
 
     /**
-     * @var boolean $hasNewService
+     * @var boolean|null $hasNewService
      */
     protected $hasNewService = null;
 
     /**
-     * @var int $hasBankingService
+     * @var int|null $hasBankingService
      */
     protected $hasBankingService = null;
 
     /**
-     * @var boolean $hasFinanceService
+     * @var boolean|null $hasFinanceService
      */
     protected $hasFinanceService = null;
 
     /**
-     * @var boolean $hasPobox
+     * @var boolean|null $hasPobox
      */
     protected $hasPobox = null;
 
     /**
-     * @var boolean $hasDhlExprIntern
+     * @var boolean|null $hasDhlExprIntern
      */
     protected $hasDhlExprIntern = null;
 
     /**
-     * @var boolean $hasCargoAcceptance
+     * @var boolean|null $hasCargoAcceptance
      */
     protected $hasCargoAcceptance = null;
 
     /**
-     * @var boolean $hasHandicappedAccess
+     * @var boolean|null $hasHandicappedAccess
      */
     protected $hasHandicappedAccess = null;
 
     /**
-     * @var boolean $hasParkingArea
+     * @var boolean|null $hasParkingArea
      */
     protected $hasParkingArea = null;
 
     /**
-     * @var boolean $hasCertificate
+     * @var boolean|null $hasCertificate
      */
     protected $hasCertificate = null;
 
     /**
-     * @var boolean $sellsPostbusTickets
+     * @var boolean|null $sellsPostbusTickets
      */
     protected $sellsPostbusTickets = null;
 
     /**
-     * @var boolean $openingEquals
+     * @var boolean|null $openingEquals
      */
     protected $openingEquals = null;
 
     /**
-     * @var float $numFinanceCounsels
+     * @var float|null $numFinanceCounsels
      */
     protected $numFinanceCounsels = null;
 
     /**
-     * @var string $depotServiceNo
+     * @var string|null $depotServiceNo
      */
     protected $depotServiceNo = null;
 
     /**
-     * @var boolean $depotServiceOeffentlich
+     * @var boolean|null $depotServiceOeffentlich
      */
     protected $depotServiceOeffentlich = null;
 
     /**
-     * @var string $website
+     * @var string|null $website
      */
     protected $website = null;
 
     /**
-     * @var string $externalMarker
+     * @var string|null $externalMarker
      */
     protected $externalMarker = null;
 
     /**
-     * @var ServiceTypes $serviceTypes
+     * @var ServiceTypes|null $serviceTypes
      */
     protected $serviceTypes = null;
 
     /**
-     * @var Poboxes $poboxes
+     * @var Poboxes|null $poboxes
      */
     protected $poboxes = null;
 
     /**
-     * @var ServicesAddition $servicesAddition
+     * @var ServicesAddition|null $servicesAddition
      */
     protected $servicesAddition = null;
 
     /**
-     * @var int $id
+     * @var int|null $id
      */
     protected $id = null;
 
     /**
-     * @var int $objectId
+     * @var int|null $objectId
      */
     protected $objectId = null;
 
     /**
-     * @var int $packstationId
+     * @var int|null $packstationId
      */
     protected $packstationId = null;
 
@@ -194,7 +193,7 @@ class AutomatFD
      */
     public function getAutomatType()
     {
-        return $this->automatType;
+        return (int) $this->automatType;
     }
 
     /**
@@ -212,7 +211,7 @@ class AutomatFD
      */
     public function getPositionType()
     {
-        return $this->positionType;
+        return (int) $this->positionType;
     }
 
     /**
@@ -230,7 +229,7 @@ class AutomatFD
      */
     public function getOpStatusType()
     {
-        return $this->opStatusType;
+        return (int) $this->opStatusType;
     }
 
     /**
@@ -248,7 +247,7 @@ class AutomatFD
      */
     public function getHasXLPostfach()
     {
-        return $this->hasXLPostfach;
+        return (bool) $this->hasXLPostfach;
     }
 
     /**
@@ -266,7 +265,7 @@ class AutomatFD
      */
     public function getDistance()
     {
-        return $this->distance;
+        return (int) $this->distance;
     }
 
     /**
@@ -280,6 +279,8 @@ class AutomatFD
     }
 
     /**
+     * fixme(nr): messy. be type-safe.
+     *
      * @return \DateTime|bool|null
      */
     public function getOutOfServiceFrom()
@@ -296,21 +297,24 @@ class AutomatFD
     }
 
     /**
+     * @fixme(nr): setters are never used in SOAP context, must not contain any logic.
+     *
      * @param \DateTime $outOfServiceFrom
      * @return \Dhl\Sdk\LocationFinder\Model\ResponseType\AutomatFD
      */
     public function setOutOfServiceFrom(\DateTime $outOfServiceFrom = null)
     {
-        if ($outOfServiceFrom == null) {
-            $this->outOfServiceFrom = null;
-        } else {
+        if ($outOfServiceFrom instanceof \DateTime) {
             $this->outOfServiceFrom = $outOfServiceFrom->format(\DateTime::ATOM);
+        } else {
+            $this->outOfServiceFrom = null;
         }
+
         return $this;
     }
 
     /**
-     * @return Address
+     * @return Address|null
      */
     public function getAddress()
     {
@@ -328,7 +332,7 @@ class AutomatFD
     }
 
     /**
-     * @return LocationWithDistance
+     * @return LocationWithDistance|null
      */
     public function getLocation()
     {
@@ -346,7 +350,7 @@ class AutomatFD
     }
 
     /**
-     * @return Timeinfos
+     * @return Timeinfos|null
      */
     public function getTimeinfos()
     {
@@ -368,7 +372,7 @@ class AutomatFD
      */
     public function getBranchType()
     {
-        return $this->branchType;
+        return (int) $this->branchType;
     }
 
     /**
@@ -386,7 +390,7 @@ class AutomatFD
      */
     public function getBranchTypeOz()
     {
-        return $this->branchTypeOz;
+        return (int) $this->branchTypeOz;
     }
 
     /**
@@ -404,7 +408,7 @@ class AutomatFD
      */
     public function getBranchTypePF()
     {
-        return $this->branchTypePF;
+        return (string) $this->branchTypePF;
     }
 
     /**
@@ -422,7 +426,7 @@ class AutomatFD
      */
     public function getHasNewService()
     {
-        return $this->hasNewService;
+        return (bool) $this->hasNewService;
     }
 
     /**
@@ -440,7 +444,7 @@ class AutomatFD
      */
     public function getHasBankingService()
     {
-        return $this->hasBankingService;
+        return (int) $this->hasBankingService;
     }
 
     /**
@@ -458,7 +462,7 @@ class AutomatFD
      */
     public function getHasFinanceService()
     {
-        return $this->hasFinanceService;
+        return (bool) $this->hasFinanceService;
     }
 
     /**
@@ -476,7 +480,7 @@ class AutomatFD
      */
     public function getHasPobox()
     {
-        return $this->hasPobox;
+        return (bool) $this->hasPobox;
     }
 
     /**
@@ -494,7 +498,7 @@ class AutomatFD
      */
     public function getHasDhlExprIntern()
     {
-        return $this->hasDhlExprIntern;
+        return (bool) $this->hasDhlExprIntern;
     }
 
     /**
@@ -512,7 +516,7 @@ class AutomatFD
      */
     public function getHasCargoAcceptance()
     {
-        return $this->hasCargoAcceptance;
+        return (bool) $this->hasCargoAcceptance;
     }
 
     /**
@@ -530,7 +534,7 @@ class AutomatFD
      */
     public function getHasHandicappedAccess()
     {
-        return $this->hasHandicappedAccess;
+        return (bool) $this->hasHandicappedAccess;
     }
 
     /**
@@ -548,7 +552,7 @@ class AutomatFD
      */
     public function getHasParkingArea()
     {
-        return $this->hasParkingArea;
+        return (bool) $this->hasParkingArea;
     }
 
     /**
@@ -566,7 +570,7 @@ class AutomatFD
      */
     public function getHasCertificate()
     {
-        return $this->hasCertificate;
+        return (bool) $this->hasCertificate;
     }
 
     /**
@@ -584,7 +588,7 @@ class AutomatFD
      */
     public function getSellsPostbusTickets()
     {
-        return $this->sellsPostbusTickets;
+        return (bool) $this->sellsPostbusTickets;
     }
 
     /**
@@ -602,7 +606,7 @@ class AutomatFD
      */
     public function getOpeningEquals()
     {
-        return $this->openingEquals;
+        return (bool) $this->openingEquals;
     }
 
     /**
@@ -620,7 +624,7 @@ class AutomatFD
      */
     public function getNumFinanceCounsels()
     {
-        return $this->numFinanceCounsels;
+        return (float) $this->numFinanceCounsels;
     }
 
     /**
@@ -638,7 +642,7 @@ class AutomatFD
      */
     public function getDepotServiceNo()
     {
-        return $this->depotServiceNo;
+        return (string) $this->depotServiceNo;
     }
 
     /**
@@ -656,7 +660,7 @@ class AutomatFD
      */
     public function getDepotServiceOeffentlich()
     {
-        return $this->depotServiceOeffentlich;
+        return (bool) $this->depotServiceOeffentlich;
     }
 
     /**
@@ -674,7 +678,7 @@ class AutomatFD
      */
     public function getWebsite()
     {
-        return $this->website;
+        return (string) $this->website;
     }
 
     /**
@@ -692,7 +696,7 @@ class AutomatFD
      */
     public function getExternalMarker()
     {
-        return $this->externalMarker;
+        return (string) $this->externalMarker;
     }
 
     /**
@@ -706,7 +710,7 @@ class AutomatFD
     }
 
     /**
-     * @return ServiceTypes
+     * @return ServiceTypes|null
      */
     public function getServiceTypes()
     {
@@ -724,7 +728,7 @@ class AutomatFD
     }
 
     /**
-     * @return Poboxes
+     * @return Poboxes|null
      */
     public function getPoboxes()
     {
@@ -742,7 +746,7 @@ class AutomatFD
     }
 
     /**
-     * @return ServicesAddition
+     * @return ServicesAddition|null
      */
     public function getServicesAddition()
     {
@@ -764,7 +768,7 @@ class AutomatFD
      */
     public function getId()
     {
-        return $this->id;
+        return (int) $this->id;
     }
 
     /**
@@ -782,7 +786,7 @@ class AutomatFD
      */
     public function getObjectId()
     {
-        return $this->objectId;
+        return (int) $this->objectId;
     }
 
     /**
@@ -800,7 +804,7 @@ class AutomatFD
      */
     public function getPackstationId()
     {
-        return $this->packstationId;
+        return (int) $this->packstationId;
     }
 
     /**

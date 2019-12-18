@@ -9,7 +9,8 @@ namespace Dhl\Sdk\LocationFinder\Soap;
 
 use Dhl\Sdk\LocationFinder\Api\LocationFinderServiceInterface;
 use Dhl\Sdk\LocationFinder\Api\ServiceFactoryInterface;
-use Dhl\Sdk\LocationFinder\Model\PickupLocationsResponseMapper;
+use Dhl\Sdk\LocationFinder\Model\LocationResponseMapper;
+use Dhl\Sdk\LocationFinder\Model\PaketboxResponseMapper;
 use Dhl\Sdk\LocationFinder\Service\LocationFinderService;
 use Psr\Log\LoggerInterface;
 
@@ -42,14 +43,16 @@ class SoapServiceFactory implements ServiceFactoryInterface
         LoggerInterface $logger,
         bool $sandboxMode = false
     ): LocationFinderServiceInterface {
-        $pickupLocationsResponseMapper = new PickupLocationsResponseMapper();
+        $locationResponseMapper = new LocationResponseMapper();
+        $paketboxResponseMapper = new PaketboxResponseMapper();
 
         $pluginClient = new Client($this->soapClient);
         $pluginClient = new LoggerDecorator($pluginClient, $this->soapClient, $logger);
 
         return new LocationFinderService(
             $pluginClient,
-            $pickupLocationsResponseMapper
+            $locationResponseMapper,
+            $paketboxResponseMapper
         );
     }
 }

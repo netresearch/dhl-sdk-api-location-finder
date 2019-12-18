@@ -17,12 +17,12 @@ use PHPUnit\Framework\TestCase;
 use Psr\Log\Test\TestLogger;
 
 /**
- * Class FindPickupLocationsByCoordinateTest
+ * Class FindDropOffLocationsByAddressTest
  *
- * @author Christoph Aßmann <christoph.assmann@netresearch.de>
+ * @author Sebastian Ertner <sebastian.ertner@netresearch.de>
  * @link   https://www.netresearch.de/
  */
-class FindPickupLocationsByCoordinateTest extends TestCase
+class FindDropOffLocationsByAddressTest extends TestCase
 {
     /**
      * @test
@@ -31,7 +31,8 @@ class FindPickupLocationsByCoordinateTest extends TestCase
     public function findLocations()
     {
         $wsdl = __DIR__ . '/../Provider/_files/standortsuche/standortsuche-api-1.1.wsdl';
-        $response = __DIR__ . '/../Provider/_files/pickup/coordinate_response.xml';
+        $packstationResponse = __DIR__ . '/../Provider/_files/dropoff/packstation_address_response.xml';
+        $paketboxResponse = __DIR__ . '/../Provider/_files/dropoff/paketbox_address_response.xml';
 
         /** @var \SoapClient|MockObject $soapClient */
         $soapClient = $this->getMockFromWsdl(
@@ -47,9 +48,12 @@ class FindPickupLocationsByCoordinateTest extends TestCase
             ]
         );
 
-        $soapClient->expects(self::once())
-                   ->method('__doRequest')
-                   ->willReturn(file_get_contents($response));
+        $soapClient->expects(self::any())
+            ->method('__doRequest')
+            ->will($this->onConsecutiveCalls(
+                file_get_contents($packstationResponse),
+                file_get_contents($paketboxResponse)
+            ));
 
         $logger = new TestLogger();
 
@@ -61,7 +65,7 @@ class FindPickupLocationsByCoordinateTest extends TestCase
             true
         );
 
-        $locations = $service->getPickUpLocationsByCoordinate('DE', 51.3286815, 12.3409894);
+        $locations = $service->getDropOffLocations('DE', '04229', 'Leipzig', 'Nonnenstraße', '11d');
 
         self::assertNotEmpty($locations);
         self::assertContainsOnlyInstancesOf(LocationInterface::class, $locations);

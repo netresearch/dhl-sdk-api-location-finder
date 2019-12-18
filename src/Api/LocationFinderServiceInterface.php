@@ -50,6 +50,8 @@ interface LocationFinderServiceInterface
     public function getPickUpLocationsByCoordinate(string $countryCode, float $latitude, float $longitude): array;
 
     /**
+     * Find drop-off locations by given address parameters.
+     *
      * @param string $countryCode
      * @param string $zip
      * @param string $city
@@ -67,6 +69,8 @@ interface LocationFinderServiceInterface
     ): array;
 
     /**
+     * Find drop-off locations by given coordinates.
+     *
      * @param string $countryCode
      * @param float $latitude
      * @param float $longitude

@@ -6,7 +6,7 @@
   <types>
     <xsd:schema>
       <xsd:import namespace="http://postfinder.dpag.de/webservice"
-                  schemaLocation="https://standorte.deutschepost.de:443/webservice/?xsd=1"/>
+                  schemaLocation="standortsuche-api-1.1.xsd"/>
     </xsd:schema>
   </types>
   <message name="getPackstationsByCoordinate">

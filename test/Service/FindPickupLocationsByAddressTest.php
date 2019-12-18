@@ -13,6 +13,7 @@ use Dhl\Sdk\LocationFinder\Serializer\ClassMap;
 use Dhl\Sdk\LocationFinder\Soap\SoapServiceFactory;
 use Dhl\Sdk\LocationFinder\Test\SoapClientFake;
 use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 use Psr\Log\Test\TestLogger;
 
 /**
@@ -21,7 +22,7 @@ use Psr\Log\Test\TestLogger;
  * @author Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link   https://www.netresearch.de/
  */
-class FindPickupLocationsByAddressTest extends \PHPUnit\Framework\TestCase
+class FindPickupLocationsByAddressTest extends TestCase
 {
     /**
      * @test
