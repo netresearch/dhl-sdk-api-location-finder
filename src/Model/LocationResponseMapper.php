@@ -1,7 +1,9 @@
 <?php
+
 /**
  * See LICENSE.md for license details.
  */
+
 declare(strict_types=1);
 
 namespace Dhl\Sdk\LocationFinder\Model;
@@ -82,11 +84,29 @@ class LocationResponseMapper
                 continue;
             }
 
-            $openingHours[] = new OpeningHours(
-                $timeInfo->getTimeFrom(),
-                $timeInfo->getTimeTo(),
-                $timeInfo->getDayTo()
-            );
+            if ($timeInfo->getDayFrom()) {
+                /**
+                 * Handle day ranges
+                 */
+                $dayFrom = $timeInfo->getDayFrom();
+                $dayTo = $timeInfo->getDayTo();
+                for ($day = $dayFrom; $day <= $dayTo; $day++) {
+                    $openingHours[] = new OpeningHours(
+                        $timeInfo->getTimeFrom(),
+                        $timeInfo->getTimeTo(),
+                        $day
+                    );
+                }
+            } else {
+                /**
+                 * Handle single days
+                 */
+                $openingHours[] = new OpeningHours(
+                    $timeInfo->getTimeFrom(),
+                    $timeInfo->getTimeTo(),
+                    $timeInfo->getDayTo()
+                );
+            }
         }
         return $openingHours;
     }

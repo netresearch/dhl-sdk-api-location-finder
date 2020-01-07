@@ -1,4 +1,5 @@
 <?php
+
 /**
  * See LICENSE.md for license details.
  */
@@ -12,6 +13,7 @@ use Dhl\Sdk\LocationFinder\Exception\ServiceException;
 use Dhl\Sdk\LocationFinder\Serializer\ClassMap;
 use Dhl\Sdk\LocationFinder\Soap\SoapServiceFactory;
 use Dhl\Sdk\LocationFinder\Test\SoapClientFake;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\Test\TestLogger;
 
