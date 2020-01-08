@@ -18,7 +18,6 @@ use PHPUnit\Framework\TestCase;
 /**
  * Class LocationResponseMapperTest
  *
- * @package Dhl\Sdk\LocationFinder\Test\Model
  * @author Max Melzer <max.melzer@netresearch.de>
  */
 class LocationResponseMapperTest extends TestCase

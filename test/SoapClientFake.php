@@ -9,7 +9,6 @@ namespace Dhl\Sdk\LocationFinder\Test;
 /**
  * Fake SOAP client used in tests.
  *
- * @package Dhl\Sdk\LocationFinder\Test
  * @author  Rico Sonntag <rico.sonntag@netresearch.de>
  * @link    https://www.netresearch.de/
  */
