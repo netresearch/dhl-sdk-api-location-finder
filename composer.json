@@ -32,10 +32,5 @@
         "psr-4": {
             "Dhl\\Sdk\\LocationFinder\\Test\\": "test/"
         }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "0.1.x-dev"
-        }
     }
 }
